@@ -1,7 +1,7 @@
 public class Card implements Comparable<Card>{
 	//enums
-	private enum Ranks {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
-	private enum Suits {CLUBS, DIAMONDS, HEARTS, SPADES}
+	public enum Ranks {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
+	public enum Suits {CLUBS, DIAMONDS, HEARTS, SPADES}
 
 	private Ranks rank;
 	private Suits suit;
