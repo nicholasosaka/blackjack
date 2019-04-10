@@ -23,6 +23,19 @@ public class Deck {
 		return c;
 	}
 
+	public ArrayList<Card> deal(int numberOfCards){
+		ArrayList<Card> cardsToDeal = new ArrayList<>();
+
+		for(int i = 0; i < numberOfCards; i++){
+			cardsToDeal.add(deck.get(0));
+			deck.remove(deck.get(0));
+			deck.subList(0,0).clear();
+
+		}
+
+		return cardsToDeal;
+	}
+
 	public void shuffle(){
 		Random rand = new Random(System.currentTimeMillis());
 		int a,b;
