@@ -4,8 +4,6 @@ import java.util.Random;
 public class Deck {
 	private ArrayList<Card> deck = new ArrayList<>();
 
-	private int shuffleLimit = 1000;
-
 	public ArrayList<Card> getDeck() {
 		return deck;
 	}
@@ -18,9 +16,17 @@ public class Deck {
 		deck.addAll(cards);
 	}
 
+	public Card deal(){
+		Card c = deck.get(0);
+		deck.remove(c);
+		deck.subList(0,0).clear();
+		return c;
+	}
+
 	public void shuffle(){
 		Random rand = new Random(System.currentTimeMillis());
 		int a,b;
+		int shuffleLimit = deck.size() * deck.size();
 
 		for(int i = 0; i < shuffleLimit; i++){
 			a = rand.nextInt(deck.size());
