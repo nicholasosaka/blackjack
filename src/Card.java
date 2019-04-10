@@ -6,8 +6,14 @@ public class Card implements Comparable<Card>{
 	private Ranks rank;
 	private Suits suit;
 
+
 	//primitives
 	private boolean faceUp; //whether the card value is "visible"
+
+	//statics
+	private static int suitIndex = 0; //to hold which suit is to be used
+	private static int cardNum = 0; //to hold the current card number, as generated.
+
 
 	/**
 	 * Construct a Card object via providing specific values for suit and rank.
@@ -26,10 +32,19 @@ public class Card implements Comparable<Card>{
 	 */
 	Card(int index){
 		this.rank = Ranks.values()[index % 13];
-		this.suit = Suits.values()[index / 13];
+		this.suit = Suits.values()[suitIndex % 4];
+
+		cardNum++;  //constructor generated another card
+		if(cardNum % 13 == 0 & cardNum != 0){  //if this is the 13th card (mod 13) and not the first card
+			suitIndex++;    //change suits
+		}
 	}
 
 
+	public void resetSuitIndex(){
+		cardNum = 0;
+		suitIndex = 0;
+	}
 	/**
 	 * Getter for boolean value, whether the card value is visible.
 	 * @return whether the card is being "shown".
