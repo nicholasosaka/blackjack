@@ -6,7 +6,5 @@ public class Driver {
 		Deck deck = new Deck();
 		Hand hand = new Hand();
 
-
-
 	}
 }
