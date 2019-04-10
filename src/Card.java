@@ -51,6 +51,6 @@ public class Card {
 	 * @return rank of card returned as an enumerated type of Ranks.
 	 */
 	public Ranks getRank(){
-		return
+		return this.rank;
 	}
 }
