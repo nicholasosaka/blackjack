@@ -68,10 +68,10 @@ public class Hand {
 	 */
 	@Override
 	public String toString(){
-		String str = "";
+		StringBuilder str = new StringBuilder();
 		for(Card c : cards){
-			str += c.toString() + "  ";
+			str.append(c.toString()).append("  ");
 		}
-		return str;
+		return str.toString();
 	}
 }
