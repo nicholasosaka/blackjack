@@ -1,4 +1,4 @@
-public class Card {
+public class Card implements Comparable<Card>{
 	//enums
 	private enum Ranks {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
 	private enum Suits {CLUBS, DIAMONDS, HEARTS, SPADES}
@@ -28,7 +28,6 @@ public class Card {
 		this.suit = Suits.values()[index / 13];
 	}
 
-
 	/**
 	 * Getter for boolean value, whether the card value is visible.
 	 * @return whether the card is being "shown".
@@ -45,12 +44,34 @@ public class Card {
 		this.faceUp = faceUp;
 	}
 
-
 	/**
 	 * Getter for the rank of the card.
 	 * @return rank of card returned as an enumerated type of Ranks.
 	 */
 	public Ranks getRank(){
 		return this.rank;
+	}
+
+	/**
+	 * Compares two cards.
+	 * @param c Card to compare current card against.
+	 * @return positive int if current card is worth more. negative int if current card is worth less. 0 if equal.
+	 */
+	@Override
+	public int compareTo(Card c){
+		return this.rank.compareTo(c.getRank());
+	}
+
+
+	@Override
+	public String toString(){
+		String[] suitUnicode = {"♣", "♦", "♥", "♠"};
+		String firstLetter;
+		if( 0 < this.rank.ordinal() && this.rank.ordinal() < 10){
+			firstLetter = Integer.toString(this.rank.ordinal() + 1);
+		} else {
+			firstLetter = this.rank.name().substring(0,1);
+		}
+		return firstLetter + suitUnicode[suit.ordinal()];
 	}
 }
