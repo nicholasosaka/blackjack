@@ -4,6 +4,14 @@ import java.util.Random;
 public class Deck {
 	private ArrayList<Card> deck = new ArrayList<>();
 
+	Deck(){
+		populate(52);
+	}
+
+	Deck(int numberOfCards){
+		populate(numberOfCards);
+	}
+
 	public ArrayList<Card> getDeck() {
 		return deck;
 	}
@@ -34,6 +42,12 @@ public class Deck {
 		}
 
 		return cardsToDeal;
+	}
+
+	public void populate(int numberOfCards){
+		for(int i = 0; i < numberOfCards; i++){
+			deck.add(new Card(i));
+		}
 	}
 
 	public void shuffle(){
