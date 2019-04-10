@@ -19,6 +19,7 @@ public class Card implements Comparable<Card>{
 		this.suit = suit;
 	}
 
+
 	/**
 	 * Construct a Card object via providing an index, which will create a Card in ascending order from index = 0 to 51.
 	 * @param index index of the card in a sorted 52 card deck.
@@ -28,6 +29,7 @@ public class Card implements Comparable<Card>{
 		this.suit = Suits.values()[index / 13];
 	}
 
+
 	/**
 	 * Getter for boolean value, whether the card value is visible.
 	 * @return whether the card is being "shown".
@@ -36,6 +38,7 @@ public class Card implements Comparable<Card>{
 		return faceUp;
 	}
 
+
 	/**
 	 * Setter for boolean value, whether the card value is visible.
 	 * @param faceUp whether the card is being "shown"
@@ -43,6 +46,7 @@ public class Card implements Comparable<Card>{
 	public void setFaceUp(boolean faceUp) {
 		this.faceUp = faceUp;
 	}
+
 
 	/**
 	 * Getter for the rank of the card.
