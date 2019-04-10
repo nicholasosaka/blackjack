@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class Hand {
 
-	ArrayList<Card> cards = new ArrayList<>();
+	private ArrayList<Card> cards = new ArrayList<>();
 
 	private boolean bust;
-	int numberOfAces;
+	private int numberOfAces;
 
 	Hand(){
 		bust = false;
