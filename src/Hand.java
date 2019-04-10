@@ -46,10 +46,14 @@ public class Hand {
 
 	/**
 	 * Used to add a card into the hand.
-	 * @param c Card to add into hand.
+	 * @param card Card to add into hand.
 	 */
-	public void hit(Card c){
-		cards.add(c);
+	public void hit(Card card){
+		cards.add(card);
+	}
+
+	public void hit(ArrayList<Card> cards){
+		this.cards.addAll(cards);
 	}
 
 
