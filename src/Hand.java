@@ -12,11 +12,10 @@ public class Hand {
 		numberOfAces = 0;
 	}
 
-	Hand(ArrayList<Card> cards){
-		this.cards = cards;
-		numberOfAces = 0;
-	}
-
+	/**
+	 * Calculates value of hand, optimizes for Aces (value 1 or 11)
+	 * @return int representative of the cumulative value of cards in the hand.
+	 */
 	public int getValue(){
 		int value = 0;
 		boolean hasAce = false;
@@ -45,11 +44,28 @@ public class Hand {
 	}
 
 
+	/**
+	 * Used to add a card into the hand.
+	 * @param c Card to add into hand.
+	 */
 	public void hit(Card c){
 		cards.add(c);
 	}
 
 
+	/**
+	 * Used to return hand back into the deck.
+	 * @return ArrayList of Cards.
+	 */
+	public ArrayList<Card> dump(){
+		return cards;
+	}
+
+
+	/**
+	 * toString override from Object.
+	 * @return String formatted with each card separated by two spaces.
+	 */
 	@Override
 	public String toString(){
 		String str = "";
