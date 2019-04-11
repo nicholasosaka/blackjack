@@ -42,8 +42,20 @@ public class Table {
 	}
 
 	public void playRound() {
-		System.out.println("Round number " + (++roundNumber));
+		System.out.println("Round Number " + (++roundNumber));
 
+		boolean winState = false;
+
+		do{
+
+			for (Player player : players) {
+				System.out.println(player.getName() + ", it's your turn.");
+				if(player.playTurn()){
+					break;
+				}
+			}
+
+		}while(!winState);
 
 	}
 
