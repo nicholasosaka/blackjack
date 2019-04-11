@@ -31,6 +31,7 @@ public class Card implements Comparable<Card>{
 	 * @param index index of the card in a sorted 52 card deck.
 	 */
 	Card(int index){
+		//TODO handle finding suit/rank based only on index
 		this.rank = Ranks.values()[index % 13];
 		this.suit = Suits.values()[suitIndex % 4];
 
