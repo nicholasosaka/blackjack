@@ -87,6 +87,10 @@ public class Card implements Comparable<Card>{
 	}
 
 
+	/**
+	 * Places Card into format of A♠ instead of "ACE of SPADES".
+	 * @return String of length 2.
+	 */
 	@Override
 	public String toString(){
 		String[] suitUnicode = {"♣", "♦", "♥", "♠"};
