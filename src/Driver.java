@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Driver {
@@ -17,8 +18,23 @@ public class Driver {
 	private static void playGame() {
 		boolean continuePlay = true;
 		do{
+			table.playRound();
+			table.printStats();
+
+			try{
+				System.out.print("\n\nPlay another round? Y/n\t");
+				String userIn = scan.nextLine();
+				if(userIn.toLowerCase().trim().charAt(0) == 'n'){
+					continuePlay = false;
+				}
+			}catch(Exception e){
+				System.out.println("Unknown response, quitting game.");
+				continuePlay = false;
+			}
 
 		}while(continuePlay);
+
+		System.out.println("\nThank you for playing!");
 	}
 
 
