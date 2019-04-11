@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Human extends Player{
 
+	Scanner scan = new Scanner(System.in);
+
 	Human(String name){
 		super(name);
 	}
@@ -17,7 +19,75 @@ public class Human extends Player{
 	@Override
 	public boolean playTurn(){
 		//TODO implement turn logic
+		bet();
+		turnMenu();
 
 		return false;
 	}
+
+	public int turnMenu(){
+		int choice = -1;
+
+		while(true) {
+			try {
+				System.out.println(this.getName() + ", please select a choice.");
+				System.out.print("1. Hit\n" +
+						"2. Stand\n" +
+						"3. Double\n" +
+						"4. Surrender\n" +
+						"> ");
+
+				choice = Integer.parseInt(scan.nextLine());
+
+				if( choice < 1 || choice > 4){
+					throw new ArithmeticException("Please enter a valid option");
+				}
+
+				return choice;
+
+			} catch (ArithmeticException ae) {
+				System.out.print(ae.getMessage() +
+						"\n>");
+
+			} catch (NumberFormatException nfe){
+				System.out.println("NFE REACHED");
+
+			} catch (Exception e){
+				System.out.println("Please select an option." +
+						"\n>");
+			}
+		}
+
+	}
+
+	/**
+	 * Method to bet. Doesn't allow to bet more than in player's bank and doesn't allow betting $0.
+	 * @return
+	 */
+	public int bet() {
+		int bet;
+		System.out.print("How much would you like to bet?");
+
+		while (true) {
+			try {
+				System.out.print(" $");
+				bet = Integer.parseInt(scan.nextLine());
+
+				if(bet < this.getMoney()){
+					throw new ArithmeticException("You can't bet more than you have");
+				} else if (bet == 0){
+					throw new ArithmeticException("You can't bet nothing!");
+				}
+
+				return bet;
+
+			} catch (ArithmeticException ae){
+				System.out.print(ae.getMessage());
+
+			} catch (Exception e){
+				System.out.print("Please enter a bet.");
+			}
+		}
+	}
+
 }
