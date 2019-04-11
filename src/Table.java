@@ -53,21 +53,26 @@ public class Table {
 		System.out.println(players.toArray().toString());
 	}
 
+	/**
+	 * Method to play a round of blackjack.
+	 */
 	public void playRound() {
 		System.out.println("Round Number " + (++roundNumber));
 
 		boolean winState = false;
+		int playerIndex = 0;
 
 		do{
 
-			for (Player player : players) {
-				System.out.println(player.getName() + ", it's your turn.");
-				if(player.playTurn()){
-					break;
-				}
-			}
+			Player currentPlayer = players.get(playerIndex % players.size());
+			System.out.println(currentPlayer.getName() + ", it's your turn.");
+			winState = currentPlayer.playTurn();
+
+			playerIndex++;
 
 		}while(!winState);
+
+		printStats();
 
 	}
 
