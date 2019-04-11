@@ -38,13 +38,14 @@ public class Deck {
 			cardsToDeal.add(deck.get(0));
 			deck.remove(deck.get(0));
 			deck.subList(0,0).clear();
-
 		}
 
 		return cardsToDeal;
 	}
 
 	public void populate(int numberOfCards){
+		Card.resetSuitIndex();
+
 		for(int i = 0; i < numberOfCards; i++){
 			deck.add(new Card(i));
 		}

@@ -31,7 +31,6 @@ public class Card implements Comparable<Card>{
 	 * @param index index of the card in a sorted 52 card deck.
 	 */
 	Card(int index){
-		//TODO handle finding suit/rank based only on index
 		this.rank = Ranks.values()[index % 13];
 		this.suit = Suits.values()[suitIndex % 4];
 
@@ -42,10 +41,15 @@ public class Card implements Comparable<Card>{
 	}
 
 
-	public void resetSuitIndex(){
+	/**
+	 * Reset suit index such that a fresh 52 deck can be created
+	 */
+	public static void resetSuitIndex(){
 		cardNum = 0;
 		suitIndex = 0;
 	}
+
+
 	/**
 	 * Getter for boolean value, whether the card value is visible.
 	 * @return whether the card is being "shown".

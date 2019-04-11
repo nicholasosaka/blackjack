@@ -6,7 +6,8 @@ public abstract class Player {
 	private int bank;
 	private Hand hand;
 
-	Player(){
+	Player(String name){
+		this.name = name;
 		bank = 1000;
 	}
 
