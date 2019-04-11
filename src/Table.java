@@ -19,14 +19,23 @@ public class Table {
 	}
 
 
+	/**
+	 * Method to add players to the table. Allows for creation of AI Players
+	 * @param numPlayers Integer number of players to add.
+	 */
 	public void addPlayers(int numPlayers){
+		int aiPlayerNum = 0;
 		for(int i = 0; i < numPlayers; i++){
-			System.out.print("Please enter player " + (i+1) + "'s name: ");
+			System.out.print("Please enter player " + (i+1) + "'s name: (Enter for AI player) ");
 			String playerName;
 
 			try{
 				playerName = scan.nextLine();
-				players.add(new Human(playerName));
+				if(playerName.toLowerCase().trim().equals("")){
+					players.add(new AIPlayer(++aiPlayerNum));
+				} else {
+					players.add(new Human(playerName));
+				}
 
 			}catch(NoSuchElementException nsee){
 				System.out.println("Enter a name.");
@@ -39,6 +48,9 @@ public class Table {
 			}
 
 		}
+
+		//TODO REMOVE TEST CALL
+		System.out.println(players.toArray().toString());
 	}
 
 	public void playRound() {
