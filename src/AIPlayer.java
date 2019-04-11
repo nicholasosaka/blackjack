@@ -5,9 +5,15 @@ public class AIPlayer extends Player {
 	}
 
 
+	/**
+	 * AI turn logic.
+	 * @return boolean declaring if a winstate has been reached.
+	 */
 	@Override
-	public void playTurn(){
+	public boolean playTurn(){
 		//TODO implement AI
+
+		return false;
 	}
 
 }

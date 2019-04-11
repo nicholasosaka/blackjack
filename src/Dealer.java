@@ -4,8 +4,14 @@ public class Dealer extends Player{
 		super("Dealer");
 	}
 
+	/**
+	 * Dealer turn logic.
+	 * @return boolean declaring whether a winstate has been reached.
+	 */
 	@Override
-	public void playTurn(){
+	public boolean playTurn(){
 		//TODO implement dealer AI
+
+		return false;
 	}
 }

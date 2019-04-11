@@ -8,8 +8,14 @@ public class Human extends Player{
 		super(money);
 	}
 
+	/**
+	 * Human player turn logic.
+	 * @return boolean declaring whether a winstate has been reached.
+	 */
 	@Override
-	public void playTurn(){
+	public boolean playTurn(){
 		//TODO implement turn logic
+
+		return false;
 	}
 }
