@@ -6,7 +6,7 @@ public class Table {
 	Scanner scan = new Scanner(System.in);
 
 	private int roundNumber;
-	public ArrayList<Human> players;
+	public ArrayList<Player> players;
 	private Deck deck;
 
 	Table() {
