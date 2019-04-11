@@ -76,6 +76,9 @@ public class Table {
 
 	}
 
+	/**
+	 * Method that prints statistic after a round.
+	 */
 	public void printStats() {
 		System.out.println("Round stats: Round " + roundNumber);
 		for(Player p : players){
