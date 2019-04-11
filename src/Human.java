@@ -7,4 +7,9 @@ public class Human extends Player{
 	Human(int money){
 		super(money);
 	}
+
+	@Override
+	public void playTurn(){
+		//TODO implement turn logic
+	}
 }

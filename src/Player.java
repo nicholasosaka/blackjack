@@ -39,5 +39,7 @@ public abstract class Player {
 		return hand.dump();
 	}
 
+	public abstract void playTurn();
+
 
 }

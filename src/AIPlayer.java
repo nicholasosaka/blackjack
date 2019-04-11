@@ -4,4 +4,10 @@ public class AIPlayer extends Player {
 		super("AI " + AInum);
 	}
 
+
+	@Override
+	public void playTurn(){
+		//TODO implement AI
+	}
+
 }
