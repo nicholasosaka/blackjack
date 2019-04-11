@@ -1,11 +1,13 @@
+import java.util.Scanner;
+
 public class Human extends Player{
 
 	Human(String name){
 		super(name);
 	}
 
-	Human(int money){
-		super(money);
+	Human(String name, int money){
+		super(name, money);
 	}
 
 	/**

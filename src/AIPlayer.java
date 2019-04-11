@@ -1,7 +1,7 @@
 public class AIPlayer extends Player {
 
-	AIPlayer(int AInum){
-		super("AI " + AInum);
+	AIPlayer(int AInum, int money){
+		super("AI " + AInum, money);
 	}
 
 

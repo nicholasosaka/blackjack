@@ -8,10 +8,15 @@ public abstract class Player {
 
 	Player(String name){
 		this.name = name;
-		bank = 1000;
+		bank = 500;
 	}
 
 	Player(int money){
+		this.bank = money;
+	}
+
+	Player(String name, int money){
+		this.name = name;
 		this.bank = money;
 	}
 
