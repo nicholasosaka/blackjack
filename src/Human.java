@@ -40,7 +40,7 @@ public class Human extends Player{
 				choice = Integer.parseInt(scan.nextLine());
 
 				if( choice < 1 || choice > 4){
-					throw new ArithmeticException("Please enter a valid option");
+					throw new ArithmeticException("Please enter a valid option.");
 				}
 
 				return choice;
@@ -50,7 +50,7 @@ public class Human extends Player{
 						"\n>");
 
 			} catch (NumberFormatException nfe){
-				System.out.println("NFE REACHED");
+				System.out.println("Please enter an integer.");
 
 			} catch (Exception e){
 				System.out.println("Please select an option." +
@@ -73,10 +73,12 @@ public class Human extends Player{
 				System.out.print(" $");
 				bet = Integer.parseInt(scan.nextLine());
 
-				if(bet < this.getMoney()){
+				if(bet > this.getMoney()){
 					throw new ArithmeticException("You can't bet more than you have");
 				} else if (bet == 0){
 					throw new ArithmeticException("You can't bet nothing!");
+				} else if (bet < 0){
+					throw new ArithmeticException("Please bet a positive number.");
 				}
 
 				return bet;
