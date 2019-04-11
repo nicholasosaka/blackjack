@@ -1,13 +1,13 @@
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
-=import java.util.Scanner;
+import java.util.Scanner;
 
 public class Table {
 	Scanner scan = new Scanner(System.in);
 
 	private int roundNumber;
-	private ArrayList<Human> players;
+	public ArrayList<Human> players;
 	private Deck deck;
 
 	Table() {
@@ -28,11 +28,15 @@ public class Table {
 			try{
 				playerName = scan.nextLine();
 				players.add(new Human(playerName));
+
 			}catch(NoSuchElementException nsee){
 				System.out.println("Enter a name.");
+				i--;
 
 			}catch(IllegalStateException ise){
-
+				scan = new Scanner(System.in); //ISE is when scanner is closed, so make a new scanner.
+				System.out.println("Please reenter player name.");
+				i--;
 			}
 
 		}
