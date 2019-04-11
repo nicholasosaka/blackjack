@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Driver {
@@ -45,17 +43,17 @@ public class Driver {
 			try {
 				numPlayers = Integer.parseInt(scan.nextLine());
 				if(numPlayers <= 0){
-					throw new ArithmeticException("Please enter a positive number.");
+					throw new ArithmeticException("Please enter a positive number.  ");
 				}
 				break;
 			}catch(ArithmeticException ae){
-				System.out.println(ae.getMessage());
+				System.out.print(ae.getMessage());
 
 			}catch(NumberFormatException nfe){
-				System.out.println("Please enter a valid number.");
+				System.out.print("Please enter a valid number.  ");
 
 			}catch(Exception e){
-				System.out.println("Please enter a number.");
+				System.out.print("Please enter a number.  ");
 			}
 		}
 
