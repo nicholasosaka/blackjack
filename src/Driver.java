@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Driver {
 	private static Scanner scan = new Scanner(System.in);
-	private static Deck deck = new Deck();
-	private static Hand hand = new Hand();
 	private static Table table = new Table();
 
 	public static void main(String[] args){
