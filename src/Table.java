@@ -32,9 +32,11 @@ public class Table {
 			try{
 				playerName = scan.nextLine();
 				if(playerName.toLowerCase().trim().equals("")){
-					players.add(new AIPlayer(++aiPlayerNum));
+					players.add(new AIPlayer(++aiPlayerNum, 500));
+
 				} else {
-					players.add(new Human(playerName));
+					players.add(new Human(playerName, 500));
+
 				}
 
 			}catch(NoSuchElementException nsee){
@@ -49,8 +51,6 @@ public class Table {
 
 		}
 
-		//TODO REMOVE TEST CALL
-		System.out.println(players.toArray().toString());
 	}
 
 	/**
