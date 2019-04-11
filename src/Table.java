@@ -46,14 +46,12 @@ public class Table {
 		System.out.println("Round number " + (++roundNumber));
 
 
-
 	}
 
 	public void printStats() {
 		System.out.println("Round stats: Round " + roundNumber);
 		for(Player p : players){
-			System.out.format("%1s%10s", p.getName(), ("$" + p.getMoney()));
-			System.out.println();
+			System.out.format("%-15s %7s %n", p.getName(), "$" + p.getMoney());
 		}
 	}
 }
