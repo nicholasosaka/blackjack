@@ -1,5 +1,8 @@
 public class Dealer extends Player{
 
+	/**
+	 * Default Constructor, sets same to Dealer.
+	 */
 	Dealer(){
 		super("Dealer");
 	}

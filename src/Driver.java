@@ -11,6 +11,9 @@ public class Driver {
 
 	}
 
+	/**
+	 * Logic to play game
+	 */
 	private static void playGame() {
 		boolean continuePlay = true;
 		do{
@@ -34,6 +37,9 @@ public class Driver {
 	}
 
 
+	/**
+	 * Logic to initialize gamestates and gather information
+	 */
 	public static void initialize(){
 		System.out.println("Welcome to Blackjack");
 

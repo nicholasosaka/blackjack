@@ -4,10 +4,19 @@ public class Human extends Player{
 
 	Scanner scan = new Scanner(System.in);
 
+	/**
+	 * Constructor for name
+	 * @param name player's name
+	 */
 	Human(String name){
 		super(name);
 	}
 
+	/**
+	 * Constructor for name and money
+	 * @param name player's name
+	 * @param money starting wallet
+	 */
 	Human(String name, int money){
 		super(name, money);
 	}
@@ -25,6 +34,10 @@ public class Human extends Player{
 		return false;
 	}
 
+	/**
+	 * Method to display turn menu
+	 * @return integer 1 - 4 (inclusive) corresponding to menu choice.
+	 */
 	public int turnMenu(){
 		int choice = -1;
 

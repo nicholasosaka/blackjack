@@ -1,5 +1,10 @@
 public class AIPlayer extends Player {
 
+	/**
+	 * Constructor for AIPlayer
+	 * @param AInum which AI player this is
+	 * @param money starting wallet
+	 */
 	AIPlayer(int AInum, int money){
 		super("AI " + AInum, money);
 	}

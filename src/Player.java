@@ -6,44 +6,77 @@ public abstract class Player {
 	private int bank;
 	private Hand hand;
 
+	/**
+	 * Constructor for name
+	 * @param name player's name
+	 */
 	Player(String name){
 		this.name = name;
 		bank = 500;
 	}
 
-	Player(int money){
-		this.bank = money;
-	}
-
+	/**
+	 * Constructor for name and money
+	 * @param name player's name
+	 * @param money player's starting wallet
+	 */
 	Player(String name, int money){
 		this.name = name;
 		this.bank = money;
 	}
 
+	/**
+	 * getter for name
+	 * @return String with name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * getter for money in wallet
+	 * @return int with wallet value
+	 */
 	public int getMoney() {
 		return bank;
 	}
 
+	/**
+	 * add money to wallet
+	 * @param money money to add to wallet
+	 */
 	public void addMoney(int money) {
 		this.bank += money;
 	}
 
+	/**
+	 * remove money from wallet
+	 * @param money money to remove from wallet
+	 */
 	public void removeMoney(int money){
 		this.bank -= money;
 	}
 
+	/**
+	 * Method to add card to hand
+	 * @param card card to add
+	 */
 	public void hit(Card card){
 		hand.hit(card);
 	}
 
+	/**
+	 * Method to return cards from hand
+	 * @return list of Card objects that were in hand
+	 */
 	public ArrayList<Card> dump(){
 		return hand.dump();
 	}
 
+	/**
+	 * logic for turn gameplay
+	 * @return boolean representing if a winning gamestate was reached
+	 */
 	public abstract boolean playTurn();
 
 

@@ -9,6 +9,12 @@ public class Table {
 	public ArrayList<Player> players;
 	private Deck deck;
 
+	/**
+	 * Default Constructor
+	 * Sets round number to 0, initializes deck with default constructor
+	 * populates deck with 52 cards
+	 * initializes players to an empty list.
+	 */
 	Table() {
 		roundNumber = 0;
 
