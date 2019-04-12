@@ -17,8 +17,7 @@ public class Table {
 	Table() {
 		roundNumber = 0;
 
-		deck = new Deck();
-		deck.populate(52);
+		deck = new Deck(52);
 
 		players = new ArrayList<>();
 	}
