@@ -11,8 +11,7 @@ public class Table {
 
 	/**
 	 * Default Constructor
-	 * Sets round number to 0, initializes deck with default constructor
-	 * populates deck with 52 cards
+	 * Sets round number to 0, initializes deck with 52 cards
 	 * initializes players to an empty list.
 	 */
 	Table() {
@@ -23,7 +22,6 @@ public class Table {
 
 		players = new ArrayList<>();
 	}
-
 
 	/**
 	 * Method to add players to the table. Allows for creation of AI Players

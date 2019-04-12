@@ -7,6 +7,10 @@ public class Hand {
 	private boolean bust;
 	private int numberOfAces;
 
+	/**
+	 * Default constructor for hand.
+	 * Sets bust state to false and number of aces to 0.
+	 */
 	Hand(){
 		bust = false;
 		numberOfAces = 0;

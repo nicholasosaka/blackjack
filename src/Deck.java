@@ -4,14 +4,18 @@ import java.util.Random;
 public class Deck {
 	private ArrayList<Card> deck = new ArrayList<>();
 
-	Deck(){
-		populate(52);
-	}
-
+	/**
+	 * Constructor for Deck. Populates deck with a number of cards
+	 * @param numberOfCards number of cards to populate
+	 */
 	Deck(int numberOfCards){
 		populate(numberOfCards);
 	}
 
+	/**
+	 * Getter for deck
+	 * @return returns ArrayList of type Card
+	 */
 	public ArrayList<Card> getDeck() {
 		return deck;
 	}

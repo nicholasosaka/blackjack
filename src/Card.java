@@ -88,7 +88,7 @@ public class Card implements Comparable<Card>{
 
 
 	/**
-	 * Places Card into format of A♠ instead of "ACE of SPADES".
+	 * Places Card into format of two characters
 	 * @return String of length 2.
 	 */
 	@Override
