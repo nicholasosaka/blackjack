@@ -1,3 +1,6 @@
+/**
+ * AI Player subclass
+ */
 public class AIPlayer extends Player {
 
 	/**

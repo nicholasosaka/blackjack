@@ -1,3 +1,6 @@
+/**
+ * Dealer class which runs dealer logic.
+ */
 public class Dealer extends Player{
 
 	/**

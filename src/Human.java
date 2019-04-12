@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Human player subclass. Runs game logic for human player turns.
+ */
 public class Human extends Player{
 
 	Scanner scan = new Scanner(System.in);

@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * Player abstract class.
+ */
 public abstract class Player {
 
 	private String name;

@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Main class to run the initial game logic.
+ */
 public class Driver {
 	private static Scanner scan = new Scanner(System.in);
 	private static Table table = new Table();

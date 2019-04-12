@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+ * Hand object to hold deck and run calculations on hand value.
+ */
 public class Hand {
 
 	private ArrayList<Card> cards = new ArrayList<>();

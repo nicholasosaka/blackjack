@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Deck of playing Card objects.
+ */
 public class Deck {
 	private ArrayList<Card> deck = new ArrayList<>();
 

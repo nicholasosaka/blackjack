@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * Table Object to hold players and deck, as well as run blackjack game logic.
+ */
 public class Table {
 	Scanner scan = new Scanner(System.in);
 
