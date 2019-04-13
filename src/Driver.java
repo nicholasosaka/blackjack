@@ -27,14 +27,15 @@ public class Driver {
 	 */
 	private static void playGame() {
 		boolean continuePlay = true;
-		do{
-			table.playRound();
-			table.printStats();
+		do{ //as long as an exit input is not received from the user,
+
+			table.playRound();  //play a round
+			table.printStats(); //print the stats
 
 			try{
-				System.out.print("\n\nPlay another round? Y/n\t");
+				System.out.print("\n\nPlay another round? Y/n\t");  //grab user input
 				String userIn = scan.nextLine();
-				if(userIn.toLowerCase().trim().charAt(0) == 'n'){
+				if(userIn.toLowerCase().trim().charAt(0) == 'n'){   //if it's no, then exit loop and print exit statement
 					continuePlay = false;
 				}
 			}catch(Exception e){
@@ -58,7 +59,7 @@ public class Driver {
 		int numPlayers;
 		while(true) {
 			try {
-				numPlayers = Integer.parseInt(scan.nextLine());
+				numPlayers = Integer.parseInt(scan.nextLine()); //grab user input for number of players
 				if(numPlayers <= 0){
 					throw new ArithmeticException("Please enter a positive number.  ");
 				}
@@ -74,7 +75,7 @@ public class Driver {
 			}
 		}
 
-		table.addPlayers(numPlayers);
+		table.addPlayers(numPlayers);   //add players to table
 	}
 
 
