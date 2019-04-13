@@ -31,7 +31,6 @@ public class Human extends Player{
 	@Override
 	public boolean playTurn(){
 		//TODO implement turn logic
-		bet();
 		turnMenu();
 
 		return false;
