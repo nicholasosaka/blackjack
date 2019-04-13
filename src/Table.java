@@ -78,7 +78,6 @@ public class Table {
 
 		}while(!winState);
 
-		printStats();
 
 	}
 
