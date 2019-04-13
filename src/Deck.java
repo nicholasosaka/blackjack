@@ -9,9 +9,13 @@ public class Deck {
 
 	/**
 	 * Constructor for Deck. Populates deck with a number of cards
+	 * @param freshDeck whether to reset suit/ranks to create a fresh deck
 	 * @param numberOfCards number of cards to populate
 	 */
-	Deck(int numberOfCards){
+	Deck(boolean freshDeck, int numberOfCards){
+		if(freshDeck) {
+			Card.resetSuitIndex();  //if freshDeck is true, then reset suit index of cards
+		}
 		populate(numberOfCards);
 	}
 
@@ -51,8 +55,6 @@ public class Deck {
 	}
 
 	public void populate(int numberOfCards){
-		Card.resetSuitIndex();
-
 		for(int i = 0; i < numberOfCards; i++){
 			deck.add(new Card(i));
 		}
