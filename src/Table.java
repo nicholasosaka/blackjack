@@ -82,6 +82,15 @@ public class Table {
 	}
 
 	/**
+	 * Deal a hand to all players
+	 */
+	public void dealToAll(){
+		for(Player p : players){
+			p.hit(deck.deal());
+		}
+	}
+
+	/**
 	 * Method that prints statistic after a round.
 	 */
 	public void printStats() {
