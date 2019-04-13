@@ -8,7 +8,6 @@ public class Hand {
 	private ArrayList<Card> cards = new ArrayList<>();
 
 	private boolean bust;
-	private int numberOfAces;
 
 	/**
 	 * Default constructor for hand.
@@ -16,7 +15,6 @@ public class Hand {
 	 */
 	Hand(){
 		bust = false;
-		numberOfAces = 0;
 	}
 
 	/**
@@ -25,23 +23,24 @@ public class Hand {
 	 */
 	public int getValue(){
 		int value = 0;
-		boolean hasAce = false;
+		int numberOfAces = 0;
+		boolean hasAce = false; //assume there are no aces
 
-		for(Card c : cards){
+		for(Card c : cards){    //loop through each card in hand
 			value += c.getRank().ordinal() + 1;
 
-			if(c.getRank().equals(Card.Ranks.ACE)){
-				value += 10;
-				numberOfAces++;
-				hasAce = true;
+			if(c.getRank().equals(Card.Ranks.ACE)){ //if it's an ace
+				value += 10;    //add 10. 1 was already added because 0 is an ace, and 0+1 is 1. adding 10 to the running total will be equivalent to having an ace worth 11
+				numberOfAces++; //add an ace to the number of aces in the hand.
+				hasAce = true;  //the hand does have an ace
 			}
 
 		}
 
 
-		if(value > 21 && hasAce){
-			for(int i = 0; i < numberOfAces; i++){
-				if(value - (i * 10) < 21){
+		if(value > 21 && hasAce){   //if the value is a bust and there is at least one ace
+			for(int i = 0; i < numberOfAces; i++){  //loop for the number of aces
+				if(value - (i * 10) < 21){  //if making the ace equal to 1 will reduce hand value under 21, then return the value.
 					return value - (i * 10);
 				}
 			}
@@ -80,8 +79,9 @@ public class Hand {
 	@Override
 	public String toString(){
 		StringBuilder str = new StringBuilder();
-		for(Card c : cards){
-			str.append(c.toString()).append("  ");
+
+		for(Card c : cards){    //for each card,
+			str.append(c.toString()).append("  ");  //add the card representation and then add a space.
 		}
 		return str.toString();
 	}
