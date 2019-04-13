@@ -20,7 +20,7 @@ public class Table {
 	Table() {
 		roundNumber = 0;
 
-		deck = new Deck(52);
+		deck = new Deck(true, 52);
 
 		players = new ArrayList<>();
 	}
