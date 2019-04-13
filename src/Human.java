@@ -53,7 +53,7 @@ public class Human extends Player{
 						"4. Surrender\n" +
 						"> ");
 
-				choice = Integer.parseInt(scan.nextLine());
+				choice = Integer.parseInt(scan.nextLine()); //grab user input
 
 				if( choice < 1 || choice > 4){
 					throw new ArithmeticException("Please enter a valid option.");
@@ -87,9 +87,9 @@ public class Human extends Player{
 		while (true) {
 			try {
 				System.out.print(" $");
-				bet = Integer.parseInt(scan.nextLine());
+				bet = Integer.parseInt(scan.nextLine());    //grab user input
 
-				if(bet > this.getMoney()){
+				if(bet > this.getMoney()){  //make sure bet is valid
 					throw new ArithmeticException("You can't bet more than you have");
 				} else if (bet == 0){
 					throw new ArithmeticException("You can't bet nothing!");
