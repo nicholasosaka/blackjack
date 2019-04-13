@@ -27,19 +27,13 @@ public class Hand {
 
 		for(Card c : cards){    //loop through each card in hand
 
-			if(c.isFace()){
-				value += 10;    //face cards are worth 10
-			} else {
-				value += c.getRank().ordinal() + 1; //other cards are worth the value on the card
-			}
+			value += c.getValue();  //get value (2-11)
 
 			if(c.isAce()){ //if it's an ace
-				value += 10;    //add 10. 1 was already added because 0 is an ace, and 0+1 is 1. adding 10 to the running total will be equivalent to having an ace worth 11
 				hasAce = true;  //the hand does have an ace
 			}
 
 		}
-
 
 		if(value > 21 && hasAce){   //if the value is a bust and there is at least one ace
 			for(int i = 0; i < findAces(); i++){  //loop for the number of aces

@@ -97,6 +97,27 @@ public class Card implements Comparable<Card>{
 	}
 
 	/**
+	 * Method to get value of a card based on the rank value
+	 * @return int 2 - 11
+	 */
+	public int getValue(){
+		int value = 0;
+
+		//if it's a face card, add 10
+		//if its an ace, add 11 (maximum value of ace)
+		//if it's neither, add the value on the card
+		if(this.isFace()){
+			value += 10;
+		} else if (this.isAce()){
+			value += 11;
+		} else {
+			value += this.getRank().ordinal() + 1;
+		}
+
+		return value;
+	}
+
+	/**
 	 * Compares two cards.
 	 * @param c Card to compare current card against.
 	 * @return positive int if current card is worth more. negative int if current card is worth less. 0 if equal.
