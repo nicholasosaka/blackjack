@@ -78,7 +78,7 @@ public class Human extends Player{
 
 	/**
 	 * Method to bet. Doesn't allow to bet more than in player's bank and doesn't allow betting $0.
-	 * @return
+	 * @return  int representative of amount bet
 	 */
 	public int bet() {
 		int bet;
