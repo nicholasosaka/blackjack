@@ -34,8 +34,9 @@ public class Card implements Comparable<Card>{
 	 * @param index index of the card in a sorted 52 card deck.
 	 */
 	Card(int index){
+		//rank value is dependent on index, cards can be arranged in equivalence classes on mod 13.
 		this.rank = Ranks.values()[index % 13];
-		this.suit = Suits.values()[suitIndex % 4];
+		this.suit = Suits.values()[suitIndex % 4];  //cycle through the 4 suits
 
 		cardNum++;  //constructor generated another card
 		if(cardNum % 13 == 0 & cardNum != 0){  //if this is the 13th card (mod 13) and not the first card
@@ -86,7 +87,7 @@ public class Card implements Comparable<Card>{
 	 */
 	@Override
 	public int compareTo(Card c){
-		return this.rank.compareTo(c.getRank());
+		return this.rank.compareTo(c.getRank());    //use enum compareTo
 	}
 
 
@@ -96,13 +97,14 @@ public class Card implements Comparable<Card>{
 	 */
 	@Override
 	public String toString(){
-		String[] suitUnicode = {"♣", "♦", "♥", "♠"};
+		String[] suitUnicode = {"♣", "♦", "♥", "♠"};    //create a parallel array to Suits with the unicode equivalent to given suit
 		String firstLetter;
-		if( 0 < this.rank.ordinal() && this.rank.ordinal() < 10){
-			firstLetter = Integer.toString(this.rank.ordinal() + 1);
+
+		if( 0 < this.rank.ordinal() && this.rank.ordinal() < 10){   //if the card is a numerical one
+			firstLetter = Integer.toString(this.rank.ordinal() + 1);    //firstLetter should be the ordinal value + 1
 		} else {
-			firstLetter = this.rank.name().substring(0,1);
+			firstLetter = this.rank.name().substring(0,1);  //if the card is Ace, Jack, Queen, or King, then set firstLetter to A, J, Q, K
 		}
-		return firstLetter + suitUnicode[suit.ordinal()];
+		return firstLetter + suitUnicode[suit.ordinal()];   //append the corresponding unicode token to after the letter
 	}
 }
