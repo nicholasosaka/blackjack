@@ -86,7 +86,11 @@ public class Table {
 	 */
 	public void dealToAll(){
 		for(Player p : players){
-			p.hit(deck.deal());
+			Card toDeal = deck.deal();
+
+			p.hit(toDeal);
+
+			System.out.println(p.getName() + " was dealt " + toDeal.toString());
 		}
 	}
 
