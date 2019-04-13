@@ -81,6 +81,22 @@ public class Card implements Comparable<Card>{
 	}
 
 	/**
+	 * Method to check if card is an ace.
+	 * @return true if card is an ace, otherwise false.
+	 */
+	public boolean isAce(){
+		return this.getRank().equals(Card.Ranks.ACE);
+	}
+
+	/**
+	 * Method to check if card is a face card (not an ace)
+	 * @return  true if card is a face card, otherwise false
+	 */
+	public boolean isFace(){
+		return (this.getRank().ordinal() > 9);
+	}
+
+	/**
 	 * Compares two cards.
 	 * @param c Card to compare current card against.
 	 * @return positive int if current card is worth more. negative int if current card is worth less. 0 if equal.
