@@ -2,6 +2,14 @@ import java.util.Scanner;
 
 /**
  * Main class to run the initial game logic.
+ * 5 Major Functions:
+ *
+ * Playing multiple rounds
+ * Betting/Money transfer across players
+ * Hitting/Standing
+ * "AI" Gameplay
+ * ???????
+ *
  */
 public class Driver {
 	private static Scanner scan = new Scanner(System.in);
