@@ -84,7 +84,7 @@ public class Table {
 	/**
 	 * Deal a hand to all players
 	 */
-	public void dealToAll(){
+	public void tableDeal(){
 		for(Player p : players){
 			Card toDeal = deck.deal();
 
