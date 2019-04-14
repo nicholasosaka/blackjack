@@ -111,6 +111,13 @@ public class Table {
 	}
 
 	/**
+	 * Method to print table state (players, money, cards)
+	 */
+	public void printTableState(){
+
+	}
+
+	/**
 	 * Method that prints statistic after a round.
 	 */
 	public void printStats() {
