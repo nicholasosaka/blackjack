@@ -19,9 +19,14 @@ public class AIPlayer extends Player {
 	 */
 	@Override
 	public boolean playTurn(){
-		//TODO implement AI
+		//TODO implement AI for turn playing
 
 		return false;
+	}
+
+	public int bet(){
+		//TODO implement AI for betting
+		return 0;
 	}
 
 }
