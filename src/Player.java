@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Player abstract class.
  */
 public abstract class Player {
-
+	private Scanner scan = new Scanner(System.in);
 	private String name;
 	private int bank;
 	private Hand hand;
@@ -83,4 +84,35 @@ public abstract class Player {
 	public abstract boolean playTurn();
 
 
+	/**
+	 * Method to bet. Doesn't allow to bet more than in player's bank and doesn't allow betting $0.
+	 * @return  int representative of amount bet
+	 */
+	public int bet() {
+		int bet;
+		System.out.print("How much would you like to bet?");
+
+		while (true) {
+			try {
+				System.out.print(" $");
+				bet = Integer.parseInt(scan.nextLine());    //grab user input
+
+				if(bet > this.getMoney()){  //make sure bet is valid
+					throw new ArithmeticException("You can't bet more than you have");
+				} else if (bet == 0){
+					throw new ArithmeticException("You can't bet nothing!");
+				} else if (bet < 0){
+					throw new ArithmeticException("Please bet a positive number.");
+				}
+
+				return bet;
+
+			} catch (ArithmeticException ae){
+				System.out.print(ae.getMessage());
+
+			} catch (Exception e){
+				System.out.print("Please enter a bet.");
+			}
+		}
+	}
 }
