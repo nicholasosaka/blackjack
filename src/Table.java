@@ -11,6 +11,7 @@ public class Table {
 	private int roundNumber;
 	public ArrayList<Player> players;
 	private Deck deck;
+	private int bettingPool;
 
 	/**
 	 * Default Constructor
@@ -18,6 +19,7 @@ public class Table {
 	 * initializes players to an empty list.
 	 */
 	Table() {
+		bettingPool = 0;
 		roundNumber = 0;
 
 		deck = new Deck(true, 52);
@@ -79,6 +81,20 @@ public class Table {
 		}while(!winState);
 
 
+	}
+
+	/**
+	 * Method to allow for all players to bet
+	 */
+	public void tableBet(){
+		for(Player p : players){
+			if(!p.getClass().equals(Dealer.class)) {
+				int betAmount = p.bet();
+				System.out.println(p.getName() + " has bet $" + betAmount);
+				bettingPool += betAmount;
+			}
+		}
+		System.out.println("The betting pool is now $" + bettingPool);
 	}
 
 	/**
