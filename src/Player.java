@@ -18,6 +18,7 @@ public abstract class Player {
 	Player(String name){
 		this.name = name;
 		bank = 500;
+		hand = new Hand();
 	}
 
 	/**
