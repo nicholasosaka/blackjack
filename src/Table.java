@@ -11,6 +11,7 @@ public class Table {
 	private int roundNumber;
 	public ArrayList<Player> players;
 	private Deck deck;
+	private Dealer dealer;
 
 	/**
 	 * Default Constructor
@@ -24,6 +25,8 @@ public class Table {
 		deck.shuffle();
 
 		players = new ArrayList<>();
+		dealer = new Dealer();
+
 	}
 
 	/**
@@ -69,7 +72,12 @@ public class Table {
 		boolean winState = false;
 		int playerIndex = 0;
 
-		do{
+		tableBet();
+		System.out.println("\n\n");
+		winState = tableDeal();
+		System.out.println("\n\n");
+
+		while(!winState){
 
 			Player currentPlayer = players.get(playerIndex % players.size());
 			System.out.println(currentPlayer.getName() + ", it's your turn.");
@@ -77,7 +85,8 @@ public class Table {
 
 			playerIndex++;
 
-		}while(!winState);
+		}
+
 
 
 	}
@@ -97,14 +106,34 @@ public class Table {
 	/**
 	 * Deal a hand to all players
 	 */
-	public void tableDeal(){
+	public boolean tableDeal(){
 		for(Player p : players){
-			Card toDeal = deck.deal();
+			ArrayList<Card> toDeal = deck.deal(2);
 
-			p.hit(toDeal);
+			for(Card card : toDeal){
+				p.hit(card);
+			}
 
-			System.out.println(p.getName() + " was dealt " + toDeal.toString());
+			System.out.println(p.getName() + " was dealt " + toDeal.get(0) + ", " + toDeal.get(1));
 		}
+
+		Card dealerFirst = deck.deal();
+		dealer.hit(dealerFirst);
+		System.out.println("The dealer was dealt " + dealerFirst.toString());
+
+		Card dealerSecond = deck.deal();
+		dealerSecond.setFaceUp(false);
+		dealer.hit(dealerSecond);
+
+		if(dealer.getHand().isBlackjack()){
+			dealerSecond.setFaceUp(true);
+			System.out.println("The dealer has a blackjack with cards " + dealerFirst.toString() + " and " + dealerSecond.toString());
+			return true;
+		} else {
+			System.out.println("The dealer was dealt " + dealerSecond.toString());
+		}
+
+		return false;
 	}
 
 	/**
