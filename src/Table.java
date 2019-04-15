@@ -11,7 +11,6 @@ public class Table {
 	private int roundNumber;
 	public ArrayList<Player> players;
 	private Deck deck;
-	private int bettingPool;
 
 	/**
 	 * Default Constructor
@@ -19,7 +18,6 @@ public class Table {
 	 * initializes players to an empty list.
 	 */
 	Table() {
-		bettingPool = 0;
 		roundNumber = 0;
 
 		deck = new Deck(true, 52);
