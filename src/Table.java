@@ -115,6 +115,11 @@ public class Table {
 			}
 
 			System.out.println(p.getName() + " was dealt " + toDeal.get(0) + ", " + toDeal.get(1));
+
+			if(p.getHand().isBlackjack()){
+				System.out.println("Blackjack! 3:2 payout.");
+				p.payout(1.5);
+			}
 		}
 
 		Card dealerFirst = deck.deal();
