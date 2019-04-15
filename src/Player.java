@@ -26,8 +26,17 @@ public abstract class Player {
 	 * @param money player's starting wallet
 	 */
 	Player(String name, int money){
+		hand = new Hand();
 		this.name = name;
 		this.bank = money;
+	}
+
+	/**
+	 * getter for player hand
+	 * @return player Hand object
+	 */
+	public Hand getHand() {
+		return hand;
 	}
 
 	/**
