@@ -62,6 +62,23 @@ public class Hand {
 		return number;
 	}
 
+	/**
+	 * Method to determine if the player has a blackjack
+	 * @return true if blackjack
+	 */
+	public boolean isBlackjack(){
+		Card firstCard = cards.get(0);
+		Card secondCard = cards.get(1);
+
+		if(firstCard.isAce() || firstCard.isFace() || firstCard.getRank().ordinal() == 10){         //both cards have to be either ace, face or 10.
+			if(secondCard.isAce() || secondCard.isFace() || secondCard.getRank().ordinal() == 10){
+
+				return firstCard.getValue() + secondCard.getValue() == 21;  //and both cards have to add up to 21.
+			}
+		}
+		return false;
+	}
+
 
 	/**
 	 * Used to add a card into the hand.
