@@ -100,7 +100,7 @@ public abstract class Player {
 	 */
 	public int bet() {
 		int bet;
-		System.out.print("How much would you like to bet?");
+		System.out.print(getName() + ", how much would you like to bet?");
 
 		while (true) {
 			try {
