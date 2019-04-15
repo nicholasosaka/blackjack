@@ -69,7 +69,7 @@ public class Table {
 	public void playRound() {
 		System.out.println("Round Number " + (++roundNumber));
 
-		boolean winState = false;
+		boolean winState;
 		int playerIndex = 0;
 
 		tableBet();
