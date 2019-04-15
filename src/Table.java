@@ -23,6 +23,7 @@ public class Table {
 		roundNumber = 0;
 
 		deck = new Deck(true, 52);
+		deck.shuffle();
 
 		players = new ArrayList<>();
 	}
