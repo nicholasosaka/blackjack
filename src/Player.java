@@ -116,8 +116,9 @@ public abstract class Player {
 					throw new ArithmeticException("Please bet a positive number.");
 				}
 
-				betAmount = bet;
-				return bet;
+				betAmount = bet;    //set bet amount
+				this.bank -= betAmount; //remove from bank
+				return bet; //return the amount bet.
 
 			} catch (ArithmeticException ae){
 				System.out.print(ae.getMessage());
@@ -126,5 +127,15 @@ public abstract class Player {
 				System.out.print("Please enter a bet.");
 			}
 		}
+	}
+
+	/**
+	 * Payout to player, given a ratio
+	 * @param ratio ratio to payout by
+	 */
+	public void payout(double ratio) {
+		int payout = (int) (this.betAmount * ratio);    //find payout amount
+		this.bank += payout;        //add to bank
+		this.betAmount = 0;         //reset bet amount
 	}
 }
