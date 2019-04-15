@@ -9,6 +9,7 @@ public abstract class Player {
 	private String name;
 	private int bank;
 	private Hand hand;
+	private int betAmount;
 
 	/**
 	 * Constructor for name
@@ -105,6 +106,7 @@ public abstract class Player {
 					throw new ArithmeticException("Please bet a positive number.");
 				}
 
+				betAmount = bet;
 				return bet;
 
 			} catch (ArithmeticException ae){

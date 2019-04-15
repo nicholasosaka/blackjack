@@ -90,10 +90,8 @@ public class Table {
 			if(!p.getClass().equals(Dealer.class)) {
 				int betAmount = p.bet();
 				System.out.println(p.getName() + " has bet $" + betAmount);
-				bettingPool += betAmount;
 			}
 		}
-		System.out.println("The betting pool is now $" + bettingPool);
 	}
 
 	/**
