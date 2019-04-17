@@ -33,6 +33,7 @@ public class Deck {
 
 	public void add(ArrayList<Card> cards){
 		deck.addAll(cards);
+		this.shuffle(); //ensure it's shuffled after adding card
 	}
 
 	public Card deal(){
