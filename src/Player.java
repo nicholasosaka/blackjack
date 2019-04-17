@@ -117,8 +117,7 @@ public abstract class Player {
 					throw new ArithmeticException("Please bet a positive number.");
 				}
 
-				betAmount = bet;    //set bet amount
-				this.bank -= betAmount; //remove from bank
+				setBetAmount(bet);
 				return bet; //return the amount bet.
 
 			} catch (ArithmeticException ae){
@@ -128,6 +127,23 @@ public abstract class Player {
 				System.out.print("Please enter a bet.");
 			}
 		}
+	}
+
+	/**
+	 * Getter for bet amount
+	 * @return amount bet
+	 */
+	public int getBetAmount() {
+		return betAmount;
+	}
+
+	/**
+	 * Setter for bet amount
+	 * @param betAmount amount to be bet
+	 */
+	public void setBetAmount(int betAmount) {
+		this.bank -= betAmount;
+		this.betAmount = betAmount;
 	}
 
 	/**
@@ -156,4 +172,6 @@ public abstract class Player {
 	public boolean isPlayable() {
 		return playable;
 	}
+
+
 }
