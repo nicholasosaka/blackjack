@@ -41,7 +41,7 @@ public class Human extends Player{
 	 * @return integer 1 - 4 (inclusive) corresponding to menu choice.
 	 */
 	public int turnMenu(){
-		int choice = -1;
+		int choice;
 
 		while(true) {
 			try {
