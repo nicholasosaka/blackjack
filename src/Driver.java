@@ -5,7 +5,7 @@ import java.util.Scanner;
  * 5 Major Functions:
  *
  * Playing multiple rounds
- * Betting/Money transfer across players
+ * Betting/Money transfer to/from players
  * Hitting/Standing
  * "AI" Gameplay
  * ??????? -- omitted with permission
