@@ -84,7 +84,7 @@ public class Table {
 			for(Player p : players) {
 				if (p.isPlayable()) {
 					System.out.println(p.getName() + ", it's your turn.");
-					winState = p.playTurn();
+					p.playTurn();
 				}
 			}
 
@@ -94,15 +94,19 @@ public class Table {
 			System.out.println("The dealer's hand is worth " + dealerValue);
 
 			for(Player p : players){
-				if(p.getHand().getValue() > dealerValue){
+				if(p.getHand().getValue() > dealerValue && p.getHand().getValue() <= 21){
 					p.payout(2);
 					System.out.println(p.getName() + " beat the dealer. 1:1 payout.");
-				} else if (p.getHand().getValue() == dealerValue){
+				} else if (p.getHand().getValue() == dealerValue && p.getHand().getValue() <= 21){
 					p.payout(1);
 					System.out.println(p.getName() + " has a tie. The bet was returned.");
 				}
 			}
 
+		}
+
+		for(Player p : players){    //reset after a round
+			p.setPlayable(true);
 		}
 
 	}

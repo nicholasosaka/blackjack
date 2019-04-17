@@ -20,6 +20,7 @@ public abstract class Player {
 		this.name = name;
 		bank = 500;
 		hand = new Hand();
+		playable = true;
 	}
 
 	/**
@@ -31,6 +32,7 @@ public abstract class Player {
 		hand = new Hand();
 		this.name = name;
 		this.bank = money;
+		playable = true;
 	}
 
 	/**
