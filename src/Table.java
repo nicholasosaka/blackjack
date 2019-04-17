@@ -74,8 +74,13 @@ public class Table {
 
 		tableBet();
 		System.out.println("\n\n");
+
 		winState = tableDeal();
 		System.out.println("\n\n");
+
+		if(winState){
+			System.out.println("Sorry, everybody loses.");
+		}
 
 		while(!winState){
 
@@ -86,8 +91,6 @@ public class Table {
 			playerIndex++;
 
 		}
-
-
 
 	}
 
