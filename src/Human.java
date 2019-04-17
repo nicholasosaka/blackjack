@@ -23,8 +23,46 @@ public class Human extends Player{
 	 */
 	@Override
 	public boolean playTurn(){
-		//TODO implement turn logic
-		turnMenu();
+		Card toDeal;
+
+		while(this.isPlayable()) {
+			int choice = turnMenu();
+
+			switch (choice) {
+				case 1: //hit
+					toDeal = Table.deck.deal();    //grab card from deck
+					System.out.println(getName() + ", you were dealt " + toDeal.toString());
+					hit(toDeal);    //hit
+					System.out.println("Your hand is now " + getHand().toString());
+					break;
+
+				case 2: //stand - do nothing
+					this.setPlayable(false);
+					break;
+
+				case 3: //double
+					toDeal = Table.deck.deal();
+					System.out.println(getName() + ", you were dealt " + toDeal.toString());
+
+					int previousBetAmount = this.getBetAmount();
+					this.addMoney(previousBetAmount);  //reset bet to allow for doubling bet amount
+					this.setBetAmount(2*previousBetAmount);
+
+					System.out.println("Your bet is now $" + this.getBetAmount());
+					this.setPlayable(false);
+					break;
+
+				case 4: //surrender
+					this.setPlayable(false); //set playable to false, skip further turns
+					Table.deck.add(this.dump());
+			}
+
+			if(this.getHand().getValue() > 21){
+				this.setPlayable(false);
+				System.out.println("Bust! No payout.");
+			}
+
+		}
 
 		return false;
 	}
