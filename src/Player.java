@@ -1,13 +1,15 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Player abstract class.
  */
 public abstract class Player {
-
+	private Scanner scan = new Scanner(System.in);
 	private String name;
 	private int bank;
 	private Hand hand;
+	private int betAmount;
 
 	/**
 	 * Constructor for name
@@ -16,6 +18,7 @@ public abstract class Player {
 	Player(String name){
 		this.name = name;
 		bank = 500;
+		hand = new Hand();
 	}
 
 	/**
@@ -24,8 +27,17 @@ public abstract class Player {
 	 * @param money player's starting wallet
 	 */
 	Player(String name, int money){
+		hand = new Hand();
 		this.name = name;
 		this.bank = money;
+	}
+
+	/**
+	 * getter for player hand
+	 * @return player Hand object
+	 */
+	public Hand getHand() {
+		return hand;
 	}
 
 	/**
@@ -83,4 +95,47 @@ public abstract class Player {
 	public abstract boolean playTurn();
 
 
+	/**
+	 * Method to bet. Doesn't allow to bet more than in player's bank and doesn't allow betting $0.
+	 * @return  int representative of amount bet
+	 */
+	public int bet() {
+		int bet;
+		System.out.print(getName() + ", how much would you like to bet?");
+
+		while (true) {
+			try {
+				System.out.print(" $");
+				bet = Integer.parseInt(scan.nextLine());    //grab user input
+
+				if(bet > this.getMoney()){  //make sure bet is valid
+					throw new ArithmeticException("You can't bet more than you have");
+				} else if (bet == 0){
+					throw new ArithmeticException("You can't bet nothing!");
+				} else if (bet < 0){
+					throw new ArithmeticException("Please bet a positive number.");
+				}
+
+				betAmount = bet;    //set bet amount
+				this.bank -= betAmount; //remove from bank
+				return bet; //return the amount bet.
+
+			} catch (ArithmeticException ae){
+				System.out.print(ae.getMessage());
+
+			} catch (Exception e){
+				System.out.print("Please enter a bet.");
+			}
+		}
+	}
+
+	/**
+	 * Payout to player, given a ratio
+	 * @param ratio ratio to payout by
+	 */
+	public void payout(double ratio) {
+		int payout = (int) (this.betAmount * ratio);    //find payout amount
+		this.bank += payout;        //add to bank
+		this.betAmount = 0;         //reset bet amount
+	}
 }

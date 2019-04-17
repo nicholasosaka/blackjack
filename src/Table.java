@@ -11,6 +11,7 @@ public class Table {
 	private int roundNumber;
 	public ArrayList<Player> players;
 	private Deck deck;
+	private Dealer dealer;
 
 	/**
 	 * Default Constructor
@@ -21,8 +22,11 @@ public class Table {
 		roundNumber = 0;
 
 		deck = new Deck(true, 52);
+		deck.shuffle();
 
 		players = new ArrayList<>();
+		dealer = new Dealer();
+
 	}
 
 	/**
@@ -65,10 +69,15 @@ public class Table {
 	public void playRound() {
 		System.out.println("Round Number " + (++roundNumber));
 
-		boolean winState = false;
+		boolean winState;
 		int playerIndex = 0;
 
-		do{
+		tableBet();
+		System.out.println("\n\n");
+		winState = tableDeal();
+		System.out.println("\n\n");
+
+		while(!winState){
 
 			Player currentPlayer = players.get(playerIndex % players.size());
 			System.out.println(currentPlayer.getName() + ", it's your turn.");
@@ -76,8 +85,66 @@ public class Table {
 
 			playerIndex++;
 
-		}while(!winState);
+		}
 
+
+
+	}
+
+	/**
+	 * Method to allow for all players to bet
+	 */
+	public void tableBet(){
+		for(Player p : players){
+			if(!p.getClass().equals(Dealer.class)) {
+				int betAmount = p.bet();
+				System.out.println(p.getName() + " has bet $" + betAmount);
+			}
+		}
+	}
+
+	/**
+	 * Deal a hand to all players
+	 */
+	public boolean tableDeal(){
+		for(Player p : players){
+			ArrayList<Card> toDeal = deck.deal(2);
+
+			for(Card card : toDeal){
+				p.hit(card);
+			}
+
+			System.out.println(p.getName() + " was dealt " + toDeal.get(0) + ", " + toDeal.get(1));
+
+			if(p.getHand().isBlackjack()){
+				System.out.println("Blackjack! 3:2 payout.");
+				p.payout(1.5);
+			}
+		}
+
+		Card dealerFirst = deck.deal();
+		dealer.hit(dealerFirst);
+		System.out.println("The dealer was dealt " + dealerFirst.toString());
+
+		Card dealerSecond = deck.deal();
+		dealerSecond.setFaceUp(false);
+		dealer.hit(dealerSecond);
+
+		if(dealer.getHand().isBlackjack()){
+			dealerSecond.setFaceUp(true);
+			System.out.println("The dealer has a blackjack with cards " + dealerFirst.toString() + " and " + dealerSecond.toString());
+			return true;
+		} else {
+			System.out.println("The dealer was dealt " + dealerSecond.toString());
+		}
+
+		return false;
+	}
+
+	/**
+	 * Method to print table state (players, money, cards)
+	 */
+	public void printTableState(){
 
 	}
 
