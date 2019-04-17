@@ -36,7 +36,7 @@ public class Hand {
 		}
 
 		if(value > 21 && hasAce){   //if the value is a bust and there is at least one ace
-			for(int i = 0; i < findAces(); i++){  //loop for the number of aces
+			for(int i = 0; i <= findAces(); i++){  //loop for the number of aces
 				if(value - (i * 10) < 21){  //if making the ace equal to 1 will reduce hand value under 21, then return the value.
 					return value - (i * 10);
 				}
