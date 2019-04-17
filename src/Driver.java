@@ -30,6 +30,9 @@ public class Driver {
 		do{ //as long as an exit input is not received from the user,
 
 			table.playRound();  //play a round
+
+			System.out.print("\n\n");
+
 			table.printStats(); //print the stats
 
 			try{
