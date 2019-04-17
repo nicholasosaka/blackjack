@@ -5,15 +5,8 @@ import java.util.Scanner;
  */
 public class Human extends Player{
 
-	Scanner scan = new Scanner(System.in);
+	private Scanner scan = new Scanner(System.in);
 
-	/**
-	 * Constructor for name
-	 * @param name player's name
-	 */
-	Human(String name){
-		super(name);
-	}
 
 	/**
 	 * Constructor for name and money
