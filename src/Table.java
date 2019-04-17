@@ -119,6 +119,7 @@ public class Table {
 			if(p.getHand().isBlackjack()){
 				System.out.println("Blackjack! 3:2 payout.");
 				p.payout(1.5);
+				p.setPlayable(false);
 			}
 		}
 

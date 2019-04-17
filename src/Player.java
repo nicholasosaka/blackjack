@@ -10,6 +10,7 @@ public abstract class Player {
 	private int bank;
 	private Hand hand;
 	private int betAmount;
+	private boolean playable;
 
 	/**
 	 * Constructor for name
@@ -137,5 +138,22 @@ public abstract class Player {
 		int payout = (int) (this.betAmount * ratio);    //find payout amount
 		this.bank += payout;        //add to bank
 		this.betAmount = 0;         //reset bet amount
+	}
+
+
+	/**
+	 * Setter for whether the player is eligible to play in the round
+	 * @param playable boolean value, whether the player is eligible to play
+	 */
+	public void setPlayable(boolean playable) {
+		this.playable = playable;
+	}
+
+	/**
+	 * Getter for playable attribute
+	 * @return boolean representing if the player is eligible to play
+	 */
+	public boolean isPlayable() {
+		return playable;
 	}
 }
