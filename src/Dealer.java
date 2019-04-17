@@ -1,7 +1,7 @@
 /**
  * Dealer class which runs dealer logic.
  */
-public class Dealer extends Player{
+public class Dealer extends AIPlayer{
 
 	/**
 	 * Default Constructor, sets same to Dealer.

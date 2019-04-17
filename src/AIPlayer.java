@@ -12,6 +12,10 @@ public class AIPlayer extends Player {
 		super("AI " + AInum, money);
 	}
 
+	AIPlayer(String name){
+		super(name);
+	}
+
 
 	/**
 	 * AI turn logic.
