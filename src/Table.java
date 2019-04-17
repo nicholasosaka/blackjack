@@ -10,7 +10,7 @@ public class Table {
 
 	private int roundNumber;
 	public ArrayList<Player> players;
-	private Deck deck;
+	public static Deck deck;
 	private Dealer dealer;
 
 	/**
@@ -70,7 +70,6 @@ public class Table {
 		System.out.println("Round Number " + (++roundNumber));
 
 		boolean winState;
-		int playerIndex = 0;
 
 		tableBet();
 		System.out.println("\n\n");
@@ -80,15 +79,29 @@ public class Table {
 
 		if(winState){
 			System.out.println("Sorry, everybody loses.");
-		}
+		} else {
 
-		while(!winState){
+			for(Player p : players) {
+				if (p.isPlayable()) {
+					System.out.println(p.getName() + ", it's your turn.");
+					winState = p.playTurn();
+				}
+			}
 
-			Player currentPlayer = players.get(playerIndex % players.size());
-			System.out.println(currentPlayer.getName() + ", it's your turn.");
-			winState = currentPlayer.playTurn();
+			dealer.playTurn();
 
-			playerIndex++;
+			int dealerValue = dealer.getHand().getValue();
+			System.out.println("The dealer's hand is worth " + dealerValue);
+
+			for(Player p : players){
+				if(p.getHand().getValue() > dealerValue){
+					p.payout(2);
+					System.out.println(p.getName() + " beat the dealer. 1:1 payout.");
+				} else if (p.getHand().getValue() == dealerValue){
+					p.payout(1);
+					System.out.println(p.getName() + " has a tie. The bet was returned.");
+				}
+			}
 
 		}
 
@@ -121,7 +134,7 @@ public class Table {
 
 			if(p.getHand().isBlackjack()){
 				System.out.println("Blackjack! 3:2 payout.");
-				p.payout(1.5);
+				p.payout(2.5);
 				p.setPlayable(false);
 			}
 		}
