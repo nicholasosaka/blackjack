@@ -125,7 +125,6 @@ public class Table {
 
 		Card dealerFirst = deck.deal();
 		dealer.hit(dealerFirst);
-		System.out.println("The dealer was dealt " + dealerFirst.toString());
 
 		Card dealerSecond = deck.deal();
 		dealerSecond.setFaceUp(false);
@@ -136,7 +135,7 @@ public class Table {
 			System.out.println("The dealer has a blackjack with cards " + dealerFirst.toString() + " and " + dealerSecond.toString());
 			return true;
 		} else {
-			System.out.println("The dealer was dealt " + dealerSecond.toString());
+			System.out.println("The dealer was dealt " + dealerFirst.toString() + " and " + dealerSecond.toString());
 		}
 
 		return false;
