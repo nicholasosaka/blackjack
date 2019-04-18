@@ -27,26 +27,44 @@ public class Deck {
 		return deck;
 	}
 
+	/**
+	 * Add a card to the deck
+	 * @param card Card to add
+	 */
 	public void add(Card card){
 		deck.add(card);
 	}
 
+	/**
+	 * Add many cards to the deck
+	 * @param cards cards to add
+	 */
 	public void add(ArrayList<Card> cards){
 		deck.addAll(cards);
 		this.shuffle(); //ensure it's shuffled after adding card
 	}
 
+	/**
+	 * Deal a card
+	 * @return card object to deal
+	 */
 	public Card deal(){
-		Card c = deck.get(0);
-		deck.remove(c);
+		Card c = deck.get(0);   //grab a card
+
+		deck.remove(c);     //remove the card from the deck, then resize it.
 		deck.subList(0,0).clear();
 		return c;
 	}
 
+	/**
+	 * Deal multiple cards
+	 * @param numberOfCards number of cards to be dealt
+	 * @return list of card objects dealt
+	 */
 	public ArrayList<Card> deal(int numberOfCards){
 		ArrayList<Card> cardsToDeal = new ArrayList<>();
 
-		for(int i = 0; i < numberOfCards; i++){
+		for(int i = 0; i < numberOfCards; i++){ //repeat deal logic for number of cards to deal
 			cardsToDeal.add(deck.get(0));
 			deck.remove(deck.get(0));
 			deck.subList(0,0).clear();
@@ -55,18 +73,25 @@ public class Deck {
 		return cardsToDeal;
 	}
 
+	/**
+	 * Populate deck with cards
+	 * @param numberOfCards number of cards to populate deck with
+	 */
 	public void populate(int numberOfCards){
 		for(int i = 0; i < numberOfCards; i++){
-			deck.add(new Card(i));
+			deck.add(new Card(i));  //add a card n times
 		}
 	}
 
+	/**
+	 * Shuffle deck n^2 times for a deck of size n.
+	 */
 	public void shuffle(){
 		Random rand = new Random(System.currentTimeMillis());
 		int a,b;
-		int shuffleLimit = deck.size() * deck.size();
+		int shuffleLimit = deck.size() * deck.size();   //to almost guarantee shuffling of deck
 
-		for(int i = 0; i < shuffleLimit; i++){
+		for(int i = 0; i < shuffleLimit; i++){  //swap random cards a, b.
 			a = rand.nextInt(deck.size());
 			b = rand.nextInt(deck.size());
 
@@ -74,13 +99,17 @@ public class Deck {
 		}
 	}
 
-	public void swap(int a, int b){
+	private void swap(int a, int b){    //basic swap method, uses indexes to prevent any pass-by-reference issues
 		Card temp = deck.get(a);
 		deck.set(a,deck.get(b));
 		deck.set(b, temp);
 	}
 
 
+	/**
+	 * Method to stringify deck
+	 * @return n*4 length string given n cards in deck
+	 */
 	@Override
 	public String toString(){
 		StringBuilder str = new StringBuilder();

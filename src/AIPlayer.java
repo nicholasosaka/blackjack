@@ -15,6 +15,10 @@ public class AIPlayer extends Player {
 		super("AI " + AInum, money);
 	}
 
+	/**
+	 * Constructor for AIPlayer
+	 * @param name a name for the player
+	 */
 	AIPlayer(String name){
 		super(name);
 	}
@@ -64,7 +68,7 @@ public class AIPlayer extends Player {
 				this.setPlayable(false);
 			}
 
-			if(this.getHand().getValue() > 21){
+			if(this.getHand().getValue() > 21){ //find if bust
 				this.setPlayable(false);
 				System.out.println("Bust! No payout.");
 			}
@@ -75,6 +79,10 @@ public class AIPlayer extends Player {
 		return false;
 	}
 
+	/**
+	 * Betting logic for AI player
+	 * @return random int, up to half of the money the player has
+	 */
 	public int bet(){
 		int bet;
 
