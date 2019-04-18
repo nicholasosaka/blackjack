@@ -1,7 +1,10 @@
+import java.util.Random;
+
 /**
  * AI Player subclass
  */
 public class AIPlayer extends Player {
+	Random rand = new Random(System.currentTimeMillis());
 
 	/**
 	 * Constructor for AIPlayer
@@ -29,8 +32,9 @@ public class AIPlayer extends Player {
 	}
 
 	public int bet(){
-		//TODO implement AI for betting
-		return 0;
+		int bet = rand.nextInt(this.getMoney()/2);
+		setBetAmount(bet);
+		return bet;
 	}
 
 }
