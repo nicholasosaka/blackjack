@@ -44,6 +44,8 @@ public class Human extends Player{
 					toDeal = Table.deck.deal();
 					System.out.println(getName() + ", you were dealt " + toDeal.toString());
 
+					hit(toDeal);
+
 					int previousBetAmount = this.getBetAmount();
 					this.addMoney(previousBetAmount);  //reset bet to allow for doubling bet amount
 					this.setBetAmount(2*previousBetAmount);
