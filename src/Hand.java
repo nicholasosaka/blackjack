@@ -98,7 +98,9 @@ public class Hand {
 	 * @return ArrayList of Cards.
 	 */
 	public ArrayList<Card> dump(){
-		return cards;
+		ArrayList<Card> cardsToDump = cards;
+		cards.clear();
+		return cardsToDump;
 	}
 
 
