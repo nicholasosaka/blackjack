@@ -49,6 +49,8 @@ public class Human extends Player{
 					this.setBetAmount(2*previousBetAmount);
 
 					System.out.println("Your bet is now $" + this.getBetAmount());
+					System.out.println("Your hand is now " + getHand().toString());
+
 					this.setPlayable(false);
 					break;
 
