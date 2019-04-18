@@ -43,18 +43,20 @@ public class Human extends Player{
 				case 3: //double
 					if (this.getMoney() > this.getBetAmount()*2){
 						toDeal = Table.deck.deal();
-					System.out.println(getName() + ", you were dealt " + toDeal.toString());
+						System.out.println(getName() + ", you were dealt " + toDeal.toString());
 
-					hit(toDeal);
+						hit(toDeal);
 
-					int previousBetAmount = this.getBetAmount();
-					this.addMoney(previousBetAmount);  //reset bet to allow for doubling bet amount
-					this.setBetAmount(2 * previousBetAmount);
+						int previousBetAmount = this.getBetAmount();
+						this.addMoney(previousBetAmount);  //reset bet to allow for doubling bet amount
+						this.setBetAmount(2 * previousBetAmount);
 
-					System.out.println("Your bet is now $" + this.getBetAmount());
-					System.out.println("Your hand is now " + getHand().toString());
+						System.out.println("Your bet is now $" + this.getBetAmount());
+						System.out.println("Your hand is now " + getHand().toString());
 
-					this.setPlayable(false);
+						this.setPlayable(false);
+					} else {
+						System.out.println("Not enough money to double.");
 					}
 					break;
 
