@@ -71,9 +71,9 @@ public class Hand {
 		Card secondCard = cards.get(1);
 
 		if(firstCard.isAce() || firstCard.isFace() || firstCard.getRank().ordinal() == 10){         //both cards have to be either ace, face or 10.
-			if(secondCard.isAce() || secondCard.isFace() || secondCard.getRank().ordinal() == 10){
+			if(secondCard.isAce() || secondCard.isFace() || secondCard.getRank().ordinal() == 10){  //check the second card
 
-				return firstCard.getValue() + secondCard.getValue() == 21;  //and both cards have to add up to 21.
+				return firstCard.getValue() + secondCard.getValue() == 21;  //and both cards have to add up to 21.  (NB: i suppose i could fit both if's and the return in one line using && but that obfuscates the code and i would consider it poor practice.
 			}
 		}
 		return false;
@@ -88,6 +88,10 @@ public class Hand {
 		cards.add(card);
 	}
 
+	/**
+	 * Used to add many cards into the hand
+	 * @param cards cards to add into hand
+	 */
 	public void hit(ArrayList<Card> cards){
 		this.cards.addAll(cards);
 	}
@@ -98,7 +102,7 @@ public class Hand {
 	 * @return ArrayList of Cards.
 	 */
 	public ArrayList<Card> dump(){
-		ArrayList<Card> cardsToDump = cards;
+		ArrayList<Card> cardsToDump = cards;    //add cards into a temporary holding place, clear the cards and then return the temp holder
 		cards.clear();
 		return cardsToDump;
 	}
@@ -108,7 +112,7 @@ public class Hand {
 	 */
 	public void revealCards(){
 		for(Card c : cards){
-			c.setFaceUp(true);
+			c.setFaceUp(true);  //set the face up property to true
 		}
 	}
 
