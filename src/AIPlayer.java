@@ -4,7 +4,7 @@ import java.util.Random;
  * AI Player subclass
  */
 public class AIPlayer extends Player {
-	Random rand = new Random(System.currentTimeMillis());
+	private Random rand = new Random(System.currentTimeMillis());
 
 	/**
 	 * Constructor for AIPlayer
