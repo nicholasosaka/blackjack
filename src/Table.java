@@ -84,6 +84,7 @@ public class Table {
 			for(Player p : players) {
 				if (p.isPlayable()) {
 					System.out.println(p.getName() + ", it's your turn.");
+					System.out.println("Hand: " + p.getHand().toString());
 					p.playTurn();
 
 					System.out.println();   //new line
