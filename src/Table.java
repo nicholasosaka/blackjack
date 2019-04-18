@@ -21,7 +21,7 @@ public class Table {
 	Table() {
 		roundNumber = 0;
 
-		deck = new Deck(true, 52);
+		deck = new Deck(true, 104);
 		deck.shuffle();
 
 		players = new ArrayList<>();

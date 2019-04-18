@@ -58,13 +58,17 @@ public class Driver {
 	public static void initialize(){
 		System.out.println("Welcome to Blackjack");
 
-		System.out.print("How many players are at the table? ");
+		System.out.print("How many players are at the table? (Max 10) ");
 		int numPlayers;
 		while(true) {
 			try {
 				numPlayers = Integer.parseInt(scan.nextLine()); //grab user input for number of players
 				if(numPlayers <= 0){
 					throw new ArithmeticException("Please enter a positive number.  ");
+				}
+
+				if(numPlayers > 10){
+					throw new ArithmeticException("Please enter a number of 10 or less. ");
 				}
 				break;
 			}catch(ArithmeticException ae){
