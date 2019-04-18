@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class Table {
 	//fields
-	Scanner scan = new Scanner(System.in);
+	private Scanner scan = new Scanner(System.in);
 
 	private int roundNumber;
 	private ArrayList<Player> players;
