@@ -88,6 +88,13 @@ public class Table {
 					p.playTurn();
 
 					System.out.println();   //new line
+
+					try {
+						Thread.sleep(1500); //sleep for 1.5 seconds to allow for user to absord information
+					}catch(InterruptedException ignored) {
+
+					}
+
 				}
 			}
 
@@ -140,6 +147,13 @@ public class Table {
 	 */
 	public boolean tableDeal(){
 		for(Player p : players){
+
+			try{
+				Thread.sleep(500); //sleep for half a second to allow user to absorb information
+			}catch(InterruptedException ignored){
+
+			}
+
 			ArrayList<Card> toDeal = deck.deal(2);
 
 			for(Card card : toDeal){

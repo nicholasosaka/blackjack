@@ -30,6 +30,13 @@ public class AIPlayer extends Player {
 
 
 		while(this.isPlayable()){
+
+			try{
+				Thread.sleep(1000); //sleep for a second to allow user to absorb information
+			}catch(InterruptedException ignored){
+
+			}
+
 			if(this.getHand().getValue() <= 10){ //double if hand is less than or equal to 10
 				toDeal = Table.deck.deal();
 				System.out.println(this.getName() + " doubled and was dealt " + toDeal.toString());
@@ -70,6 +77,12 @@ public class AIPlayer extends Player {
 
 	public int bet(){
 		int bet;
+
+		try{
+			Thread.sleep(500); //sleep for half a second to allow user to absorb information
+		}catch(InterruptedException ignored){
+
+		}
 
 		do {
 
