@@ -106,7 +106,10 @@ public class Table {
 		}
 
 		for(Player p : players){    //reset after a round
-			p.setPlayable(true);
+			if(p.getMoney() > 0) {
+				p.setPlayable(true);
+			}
+			deck.add(p.dump());
 		}
 
 	}
@@ -116,7 +119,7 @@ public class Table {
 	 */
 	public void tableBet(){
 		for(Player p : players){
-			if(!p.getClass().equals(Dealer.class)) {
+			if(!p.getClass().equals(Dealer.class) && p.isPlayable()) {
 				int betAmount = p.bet();
 				System.out.println(p.getName() + " has bet $" + betAmount);
 			}
