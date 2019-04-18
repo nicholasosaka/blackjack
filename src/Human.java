@@ -41,19 +41,21 @@ public class Human extends Player{
 					break;
 
 				case 3: //double
-					toDeal = Table.deck.deal();
+					if (this.getMoney() > this.getBetAmount()*2){
+						toDeal = Table.deck.deal();
 					System.out.println(getName() + ", you were dealt " + toDeal.toString());
 
 					hit(toDeal);
 
 					int previousBetAmount = this.getBetAmount();
 					this.addMoney(previousBetAmount);  //reset bet to allow for doubling bet amount
-					this.setBetAmount(2*previousBetAmount);
+					this.setBetAmount(2 * previousBetAmount);
 
 					System.out.println("Your bet is now $" + this.getBetAmount());
 					System.out.println("Your hand is now " + getHand().toString());
 
 					this.setPlayable(false);
+					}
 					break;
 
 				case 4: //surrender
