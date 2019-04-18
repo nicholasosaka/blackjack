@@ -85,6 +85,8 @@ public class Table {
 				if (p.isPlayable()) {
 					System.out.println(p.getName() + ", it's your turn.");
 					p.playTurn();
+
+					System.out.println();   //new line
 				}
 			}
 
