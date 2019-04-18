@@ -172,8 +172,6 @@ public class Table {
 		return false;
 	}
 
-
-
 	/**
 	 * Method that prints statistic after a round.
 	 */
