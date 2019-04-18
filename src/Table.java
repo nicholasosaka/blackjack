@@ -57,6 +57,10 @@ public class Table {
 				scan = new Scanner(System.in); //ISE is when scanner is closed, so make a new scanner.
 				System.out.println("Please reenter player name.");
 				i--;
+
+			} catch (Exception e){  //just in case something happens
+				System.out.println("Please reenter player name.");
+				i--;
 			}
 
 		}
