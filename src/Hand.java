@@ -7,15 +7,7 @@ public class Hand {
 
 	private ArrayList<Card> cards = new ArrayList<>();
 
-	private boolean bust;
 
-	/**
-	 * Default constructor for hand.
-	 * Sets bust state to false and number of aces to 0.
-	 */
-	Hand(){
-		bust = false;
-	}
 
 	/**
 	 * Calculates value of hand, optimizes for Aces (value 1 or 11)
