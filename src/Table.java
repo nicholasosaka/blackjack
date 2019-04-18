@@ -105,7 +105,13 @@ public class Table {
 
 		}
 
-		for(Player p : players){    //reset after a round
+		for(Player p : players){    //reset after a round and check if DQ
+
+			if(p.getMoney() < 0){
+				System.out.println(p.getName() + " has no money left.");
+				p.setPlayable(false);
+			}
+
 			if(p.getMoney() > 0) {
 				p.setPlayable(true);
 			}
