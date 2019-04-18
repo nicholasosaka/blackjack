@@ -101,10 +101,17 @@ public class Table {
 			dealer.playTurn();
 
 			int dealerValue = dealer.getHand().getValue();
-			System.out.println("The dealer's hand is worth " + dealerValue);
+
+			if (dealerValue > 21){
+				System.out.println("The dealer busts!");
+				dealer.setBust(true);
+			} else {
+				System.out.println("The dealer's hand is worth " + dealerValue);
+
+			}
 
 			for(Player p : players){
-				if(p.getHand().getValue() > dealerValue && p.getHand().getValue() <= 21 && !p.getHand().isBlackjack()){
+				if(dealer.isBust() || (p.getHand().getValue() > dealerValue && p.getHand().getValue() <= 21 && !p.getHand().isBlackjack())){
 					p.payout(2);
 					System.out.println(p.getName() + " beat the dealer. 1:1 payout.");
 				} else if (p.getHand().getValue() == dealerValue && p.getHand().getValue() <= 21){
@@ -122,11 +129,15 @@ public class Table {
 				p.setPlayable(false);
 			}
 
-			if(p.getMoney() > 0) {
+			if(p.getMoney() > 0) {  //if the player has any money, allow them to play the next round
 				p.setPlayable(true);
 			}
-			deck.add(p.dump());
+
+			deck.add(p.dump()); //dump cards back into deck
 		}
+
+		dealer.setBust(false);  //reset dealer bust state
+		deck.add(dealer.dump()); //dump dealer cards
 
 	}
 
