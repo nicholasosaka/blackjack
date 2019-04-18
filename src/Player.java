@@ -5,6 +5,7 @@ import java.util.Scanner;
  * Player abstract class.
  */
 public abstract class Player {
+	//fields
 	private Scanner scan = new Scanner(System.in);
 	private String name;
 	private int bank;
@@ -19,7 +20,7 @@ public abstract class Player {
 	 */
 	Player(String name){
 		this.name = name;
-		bank = 500;
+		bank = 500;     //give $500 as default value
 		hand = new Hand();
 		playable = true;
 	}
@@ -105,14 +106,14 @@ public abstract class Player {
 	 */
 	public int bet() {
 		int bet;
-		System.out.print(getName() + ", how much would you like to bet?");
+		System.out.print(getName() + ", how much would you like to bet?");  //prompt
 
-		while (true) {
+		while (true) {  //loop continuously until return is thrown
 			try {
 				System.out.print(" $");
 				bet = Integer.parseInt(scan.nextLine());    //grab user input
 
-				if(bet > this.getMoney()){  //make sure bet is valid
+				if(bet > this.getMoney()){  //if bet is now valid, throw an error that fits
 					throw new ArithmeticException("You can't bet more than you have");
 				} else if (bet == 0){
 					throw new ArithmeticException("You can't bet nothing!");
@@ -120,10 +121,10 @@ public abstract class Player {
 					throw new ArithmeticException("Please bet a positive number.");
 				}
 
-				setBetAmount(bet);
+				setBetAmount(bet);  //set bet to the given int
 				return bet; //return the amount bet.
 
-			} catch (ArithmeticException ae){
+			} catch (ArithmeticException ae){   //catches
 				System.out.print(ae.getMessage());
 
 			} catch (Exception e){
@@ -145,7 +146,7 @@ public abstract class Player {
 	 * @param betAmount amount to be bet
 	 */
 	public void setBetAmount(int betAmount) {
-		removeMoney(betAmount);
+		removeMoney(betAmount); //remove money from player
 		this.betAmount = betAmount;
 	}
 
