@@ -10,7 +10,7 @@ public class Table {
 	Scanner scan = new Scanner(System.in);
 
 	private int roundNumber;
-	public ArrayList<Player> players;
+	private ArrayList<Player> players;
 	public static Deck deck;    //static to allow for access from Player subclasses
 	private Dealer dealer;
 
