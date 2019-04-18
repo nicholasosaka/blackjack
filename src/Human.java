@@ -25,8 +25,8 @@ public class Human extends Player{
 	public boolean playTurn(){
 		Card toDeal;
 
-		while(this.isPlayable()) {
-			int choice = turnMenu();
+		while(this.isPlayable()) {  //as long as the player can keep playing their turn, continue
+			int choice = turnMenu();    //grab choice from menu
 
 			switch (choice) {
 				case 1: //hit
@@ -37,36 +37,38 @@ public class Human extends Player{
 					break;
 
 				case 2: //stand - do nothing
-					this.setPlayable(false);
+					this.setPlayable(false);    //prevent the player from playing further (stand is the defacto exit condition in blackjack)
 					break;
 
 				case 3: //double
-					if (this.getMoney() >= this.getBetAmount()*2){
-						toDeal = Table.deck.deal();
+					if (this.getMoney() >= this.getBetAmount()*2){  //as long as the player can afford to double their bet
+
+						toDeal = Table.deck.deal(); //deal a card
 						System.out.println(getName() + ", you were dealt " + toDeal.toString());
 
-						hit(toDeal);
+						hit(toDeal);    //hit to player's hand
 
-						int previousBetAmount = this.getBetAmount();
+						int previousBetAmount = this.getBetAmount();    //temporarily store the bet amount as previousBetAmount
 						this.addMoney(previousBetAmount);  //reset bet to allow for doubling bet amount
-						this.setBetAmount(2 * previousBetAmount);
+						this.setBetAmount(2 * previousBetAmount);   //bet the previous amount * 2
 
-						System.out.println("Your bet is now $" + this.getBetAmount());
+						System.out.println("Your bet is now $" + this.getBetAmount());  //sysouts for clarity
 						System.out.println("Your hand is now " + getHand().toString());
 
-						this.setPlayable(false);
+						this.setPlayable(false);    //player is not allowed to move after doubling
+
 					} else {
-						System.out.println("Not enough money to double.");
+						System.out.println("Not enough money to double.");  //if they can't pay, tell the user
 					}
 					break;
 
 				case 4: //surrender
 					this.setPlayable(false); //set playable to false, skip further turns
-					Table.deck.add(this.dump());
+					Table.deck.add(this.dump());    //give the deck the cards in player's hand
 			}
 
-			if(this.getHand().getValue() > 21){
-				this.setPlayable(false);
+			if(this.getHand().getValue() > 21){ //check if bust, then if it is:
+				this.setPlayable(false);    //disallow player from playing further in the round
 				System.out.println("Bust! No payout.");
 			}
 
@@ -82,9 +84,9 @@ public class Human extends Player{
 	public int turnMenu(){
 		int choice;
 
-		while(true) {
+		while(true) {   //loop forever (until return is thrown)
 			try {
-				System.out.println(this.getName() + ", please select a choice.");
+				System.out.println(this.getName() + ", please select a choice.");   //print menu
 				System.out.print("1. Hit\n" +
 						"2. Stand\n" +
 						"3. Double\n" +
@@ -93,13 +95,13 @@ public class Human extends Player{
 
 				choice = Integer.parseInt(scan.nextLine()); //grab user input
 
-				if( choice < 1 || choice > 4){
+				if( choice < 1 || choice > 4){  //if input is not valid
 					throw new ArithmeticException("Please enter a valid option.");
 				}
 
-				return choice;
+				return choice;  //if input is valid, then we know we can return
 
-			} catch (ArithmeticException ae) {
+			} catch (ArithmeticException ae) {  //catches
 				System.out.print(ae.getMessage() +
 						"\n>");
 
