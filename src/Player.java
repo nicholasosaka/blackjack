@@ -11,6 +11,7 @@ public abstract class Player {
 	private Hand hand;
 	private int betAmount;
 	private boolean playable;
+	private boolean bust;
 
 	/**
 	 * Constructor for name
@@ -175,5 +176,21 @@ public abstract class Player {
 		return playable;
 	}
 
+
+	/**
+	 * Getter for bust state of a player
+	 * @return true if player hand value is over 21
+	 */
+	public boolean isBust() {
+		return bust;
+	}
+
+	/**
+	 * Setter for bust state of a player
+	 * @param bust boolean, true if player hand value is over 21
+	 */
+	public void setBust(boolean bust) {
+		this.bust = bust;
+	}
 
 }
