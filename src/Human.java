@@ -41,7 +41,7 @@ public class Human extends Player{
 					break;
 
 				case 3: //double
-					if (this.getMoney() > this.getBetAmount()*2){
+					if (this.getMoney() >= this.getBetAmount()*2){
 						toDeal = Table.deck.deal();
 						System.out.println(getName() + ", you were dealt " + toDeal.toString());
 
