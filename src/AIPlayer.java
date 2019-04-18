@@ -69,8 +69,15 @@ public class AIPlayer extends Player {
 	}
 
 	public int bet(){
-		int bet = rand.nextInt(this.getMoney()/2);
-		setBetAmount(bet);
+		int bet;
+
+		do {
+
+			bet = rand.nextInt(this.getMoney() / 2);
+			setBetAmount(bet);
+
+		}while(bet == 0);
+
 		return bet;
 	}
 
