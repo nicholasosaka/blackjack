@@ -16,7 +16,20 @@ public class Dealer extends AIPlayer{
 	 */
 	@Override
 	public boolean playTurn(){
-		//TODO implement dealer AI
+		Card toDeal;
+
+		this.getHand().revealCards();   //reveal the hidden card
+		System.out.println("The Dealer's hand is " + this.getHand().toString());
+
+		while(this.isPlayable()){
+			if(this.getHand().getValue() < 17){
+				toDeal = Table.deck.deal();
+				hit(toDeal);
+				System.out.println("The Dealer drew a " + toDeal.toString() + " making their hand " + this.getHand().toString());
+			} else {
+				this.setPlayable(false);
+			}
+		}
 
 		return false;
 	}

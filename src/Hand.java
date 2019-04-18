@@ -103,6 +103,15 @@ public class Hand {
 		return cardsToDump;
 	}
 
+	/**
+	 * Method to reveal all cards.
+	 */
+	public void revealCards(){
+		for(Card c : cards){
+			c.setFaceUp(true);
+		}
+	}
+
 
 	/**
 	 * toString override from Object.
