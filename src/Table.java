@@ -94,7 +94,7 @@ public class Table {
 			System.out.println("The dealer's hand is worth " + dealerValue);
 
 			for(Player p : players){
-				if(p.getHand().getValue() > dealerValue && p.getHand().getValue() <= 21){
+				if(p.getHand().getValue() > dealerValue && p.getHand().getValue() <= 21 && !p.getHand().isBlackjack()){
 					p.payout(2);
 					System.out.println(p.getName() + " beat the dealer. 1:1 payout.");
 				} else if (p.getHand().getValue() == dealerValue && p.getHand().getValue() <= 21){
