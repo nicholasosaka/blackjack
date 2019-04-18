@@ -145,7 +145,7 @@ public abstract class Player {
 	 * @param betAmount amount to be bet
 	 */
 	public void setBetAmount(int betAmount) {
-		this.bank -= betAmount;
+		removeMoney(betAmount);
 		this.betAmount = betAmount;
 	}
 
