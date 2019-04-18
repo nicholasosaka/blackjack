@@ -17,7 +17,7 @@ public class Driver {
 
 	public static void main(String[] args){
 
-		initialize();
+		initialize();   //delegate functions to smaller methods
 		playGame();
 
 	}
@@ -42,7 +42,7 @@ public class Driver {
 					continuePlay = false;
 				}
 			}catch(Exception e){
-				System.out.println("Unknown response, quitting game.");
+				System.out.println("Unknown response, quitting game."); //if anything unexpected happens, better to quit the game unexpectedly than to keep playing
 				continuePlay = false;
 			}
 
@@ -58,7 +58,7 @@ public class Driver {
 	public static void initialize(){
 		System.out.println("Welcome to Blackjack");
 
-		System.out.print("How many players are at the table? (Max 10) ");
+		System.out.print("How many players are at the table? (Max 10) ");   //prompt question
 		int numPlayers;
 		while(true) {
 			try {
@@ -67,11 +67,11 @@ public class Driver {
 					throw new ArithmeticException("Please enter a positive number.  ");
 				}
 
-				if(numPlayers > 10){
+				if(numPlayers > 10){    //limit the number of players to 10
 					throw new ArithmeticException("Please enter a number of 10 or less. ");
 				}
 				break;
-			}catch(ArithmeticException ae){
+			}catch(ArithmeticException ae){     //catches
 				System.out.print(ae.getMessage());
 
 			}catch(NumberFormatException nfe){
