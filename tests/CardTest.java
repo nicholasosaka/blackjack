@@ -56,7 +56,7 @@ public class CardTest {
 	}
 
 	@Test
-	public void toStringTest() {
+	public void toStringCard() {
 		Assert.assertEquals("A♠", ace.toString());
 	}
 }
