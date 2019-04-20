@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class DeckTest {
+	private static Deck deck;
 
 	@BeforeClass
 	public static void setUp(){
@@ -14,6 +15,12 @@ public class DeckTest {
 
 	@Test
 	public void getDeck() {
+		ArrayList<Card> deckReturned = deck.getDeck();
+		ArrayList<Card> deckExpected = new ArrayList<>();
+		deckExpected.add(new Card(Card.Suits.CLUBS, Card.Ranks.ACE));
+		deckExpected.add(new Card(Card.Suits.CLUBS, Card.Ranks.TWO));
+
+		Assert.assertEquals(deckExpected, deckReturned);
 	}
 
 	@Test
