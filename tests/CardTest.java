@@ -19,8 +19,6 @@ public class CardTest {
 	@Test
 	public void compareTo() {
 
-		System.out.println(a.toString() + " | " + b.toString());
-
 		int aVal = a.getRank().ordinal() + 1;
 		int bVal = b.getRank().ordinal() + 1;
 
