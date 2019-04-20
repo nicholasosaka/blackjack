@@ -118,4 +118,26 @@ public class Deck {
 		}
 		return str.toString();
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Deck deckCompare = (Deck) o;
+
+		if(this.getDeck().size() != deckCompare.getDeck().size()) return false;
+
+		for(int i = 0; i < this.getDeck().size(); i++){
+			if(!this.getDeck().get(i).equals(deckCompare.getDeck().get((i)))) return false;
+		}
+
+		return true;
+
+	}
+
+	@Override
+	public int hashCode() {
+		return getDeck().hashCode();
+	}
 }
