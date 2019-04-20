@@ -1,39 +1,42 @@
-import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Random;
 
 public class CardTest {
-	Random rand = new Random(System.currentTimeMillis());
-	private Card a;
-	private Card b;
-	private int aIndex;
-	private int bIndex;
+	static Random rand = new Random(System.currentTimeMillis());
+	private static Card a;
+	private static Card b;
+	private static int aIndex;
+	private static int bIndex;
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeClass
+	public static void setUp() throws Exception {
 		aIndex = rand.nextInt(53);
 		bIndex = rand.nextInt(53);
-		Card a = new Card(aIndex);
-		Card b = new Card(bIndex);
+		a = new Card(aIndex);
+		b = new Card(bIndex);
 
-		Card.resetSuitIndex();
-	}
-
-	@Test
-	public void getValue() {
-		Assert.fail("Not yet implemented");
 	}
 
 	@Test
 	public void compareTo() {
-		Assert.fail("Not yet implemented");
+
+		System.out.println(a.toString() + " | " + b.toString());
+
+		int aVal = a.getRank().ordinal() + 1;
+		int bVal = b.getRank().ordinal() + 1;
+
+		Assert.assertEquals(a.compareTo(b) > 0,aVal > bVal);
+		Assert.assertEquals(a.compareTo(b) == 0, aVal == bVal);
+		Assert.assertEquals(a.compareTo(b) < 0, aVal < bVal);
+
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterClass
+	public static void tearDown() throws Exception {
 		Card.resetSuitIndex();
 	}
 }
