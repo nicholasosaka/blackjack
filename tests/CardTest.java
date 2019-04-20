@@ -6,19 +6,14 @@ import org.junit.Test;
 import java.util.Random;
 
 public class CardTest {
-	static Random rand = new Random(System.currentTimeMillis());
+	private static Random rand = new Random(System.currentTimeMillis());
 	private static Card a;
 	private static Card b;
-	private static int aIndex;
-	private static int bIndex;
 
 	@BeforeClass
-	public static void setUp() throws Exception {
-		aIndex = rand.nextInt(53);
-		bIndex = rand.nextInt(53);
-		a = new Card(aIndex);
-		b = new Card(bIndex);
-
+	public static void setUp() {
+		a = new Card(rand.nextInt(53));
+		b = new Card(rand.nextInt(53));
 	}
 
 	@Test
@@ -36,7 +31,7 @@ public class CardTest {
 	}
 
 	@AfterClass
-	public static void tearDown() throws Exception {
+	public static void tearDown() {
 		Card.resetSuitIndex();
 	}
 }
