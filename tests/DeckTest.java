@@ -1,5 +1,5 @@
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class DeckTest {
 	private static Deck deck;
 
-	@BeforeClass
-	public static void setUp(){
+	@Before
+	public void setUp(){
 		deck = new Deck(true, 2);
 
 	}
@@ -25,36 +25,45 @@ public class DeckTest {
 
 	@Test
 	public void addSingle() {
-		Assert.fail("Not yet implemented");
+		deck.add(new Card(2));
+		Assert.assertEquals(3, deck.getDeck().size());
 	}
 
 	@Test
 	public void addMultiple() {
-		Assert.fail("Not yet implemented");
+		ArrayList<Card> deckMultipleCards = new ArrayList<>();
+		deckMultipleCards.add(new Card(Card.Suits.SPADES, Card.Ranks.KING));
+		deckMultipleCards.add(new Card(Card.Suits.SPADES, Card.Ranks.ACE));
+
+		deck.add(deckMultipleCards);
+		Assert.assertEquals(4, deck.getDeck().size());
+
 	}
 
 	@Test
 	public void dealSingle() {
-		Assert.fail("Not yet implemented");
+		Card dealt = deck.deal();
+		Card expectedCard = new Card(Card.Suits.CLUBS, Card.Ranks.ACE);
+
+		Assert.assertEquals(expectedCard, dealt);
+
 	}
 
 	@Test
 	public void dealMultiple() {
-		Assert.fail("Not yet implemented");
+
+		ArrayList<Card> dealt = deck.deal(2);
+		ArrayList<Card> deckExpected = new ArrayList<>();
+		deckExpected.add(new Card(Card.Suits.CLUBS, Card.Ranks.ACE));
+		deckExpected.add(new Card(Card.Suits.CLUBS, Card.Ranks.TWO));
+
+		Assert.assertEquals(deckExpected, dealt);
+
 	}
 
 	@Test
 	public void populateDeck() {
-		Assert.fail("Not yet implemented");
-	}
-
-	@Test
-	public void shuffleDeck() {
-		Assert.fail("Not yet implemented");
-	}
-
-	@Test
-	public void toStringDeck() {
-		Assert.fail("Not yet implemented");
+		deck.populate(5);
+		Assert.assertEquals(7, deck.getDeck().size());
 	}
 }
